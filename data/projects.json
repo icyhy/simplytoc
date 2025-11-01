@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "title": "开源 Web 应用框架",
+        "description": "一个轻量级的 JavaScript Web 框架，专注于性能优化和开发体验",
+        "image": "assets/images/project1.jpg",
+        "tags": ["JavaScript", "Web Framework", "Open Source"],
+        "category": "Web应用",
+        "github": "https://github.com/username/web-framework",
+        "demo": "https://demo.example.com",
+        "featured": true,
+        "date": "2025-01-15"
+    },
+    {
+        "id": 2,
+        "title": "代码质量检查工具",
+        "description": "自动化代码质量分析和重构建议工具，支持多种编程语言",
+        "image": "assets/images/project2.jpg",
+        "tags": ["TypeScript", "CLI Tool", "Code Quality"],
+        "category": "工具",
+        "github": "https://github.com/username/code-quality",
+        "demo": null,
+        "featured": true,
+        "date": "2025-01-10"
+    },
+    {
+        "id": 3,
+        "title": "数据可视化组件库",
+        "description": "基于 D3.js 的 React 组件库，提供丰富的数据可视化图表",
+        "image": "assets/images/project3.jpg",
+        "tags": ["React", "D3.js", "Data Visualization"],
+        "category": "组件库",
+        "github": "https://github.com/username/data-viz",
+        "demo": "https://viz.example.com",
+        "featured": true,
+        "date": "2025-01-05"
+    },
+    {
+        "id": 4,
+        "title": "个人知识管理系统",
+        "description": "基于 Markdown 的个人知识管理工具，支持标签系统和全文搜索",
+        "image": "assets/images/project4.jpg",
+        "tags": ["Vue.js", "Markdown", "Search"],
+        "category": "Web应用",
+        "github": "https://github.com/username/knowledge-base",
+        "demo": null,
+        "featured": false,
+        "date": "2024-12-28"
+    },
+    {
+        "id": 5,
+        "title": "API 性能监控平台",
+        "description": "实时监控 API 性能指标，提供告警和数据分析功能",
+        "image": "assets/images/project5.jpg",
+        "tags": ["Node.js", "Monitoring", "Analytics"],
+        "category": "工具",
+        "github": "https://github.com/username/api-monitor",
+        "demo": "https://monitor.example.com",
+        "featured": false,
+        "date": "2024-12-20"
+    },
+    {
+        "id": 6,
+        "title": "响应式 UI 组件库",
+        "description": "轻量级、无样式的 React UI 组件库，完全可定制",
+        "image": "assets/images/project6.jpg",
+        "tags": ["React", "UI Components", "CSS-in-JS"],
+        "category": "组件库",
+        "github": "https://github.com/username/ui-components",
+        "demo": "https://ui.example.com",
+        "featured": false,
+        "date": "2024-12-15"
+    }
+]
