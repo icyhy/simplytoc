@@ -23,9 +23,9 @@ ECS上搭建了mongodb，开通了远程访问，具体参见[阿里云ECS折腾
 
 2、 ** 服务端 **    
 服务端登录注册实现，分别实现了LoginController，RegisterController，AuthorizationInterceptor，UserService，UserRepository，User等类  
-![输入图片说明](https://gitee.com/uploads/images/2017/1208/231233_8529a668_58701.png "1.png")  
+![输入图片说明]({{ site.baseurl }}/img/in-post/2017-12-07-gitwriter2-231233_8529a668_58701.png "1.png")  
 不具体的列了，代码暂时先放在一个Module中（一般来说，我会在项目开始就按层次分成多个包，这次项目打算先放一个包里，后期根据需要再拆分），基本调用层次就是Controller引用Service，Service引用Repository。Repository层使用SpringData实现，配合mongodb用的很舒服。  
-![输入图片说明](https://gitee.com/uploads/images/2017/1208/231733_b9639f7d_58701.png "1.png")  
+![输入图片说明]({{ site.baseurl }}/img/in-post/2017-12-07-gitwriter2-231733_b9639f7d_58701.png "1.png")  
 有一点要注意，gradle项目中使用querydsl-mongodb根据@QueryEntity生成代码的时候，需要引入
 ```
 annotationProcessor {
@@ -65,7 +65,7 @@ annotationProcessor {
 前端框架选择上花了比较长的时间，刚开始使用[WE-VUE](http://wevue.org/doc/index)，登录页面也做完了，但使用过程还是有点难受，于是换成了[VUX](https://vux.li/#/)，其实这两个框架都符合我的选择，基于WeUI和Vue2.0，使用webpack模板打包，Component都比较齐全，持续更新中。要说差别，也就在官方文档上了，前者列出了所有Component的使用方法，后者主要介绍了框架，配置，工具等。其实Component基本用法看看demo的源码很容易就理解了，反而是框架设计的介绍，我觉得WE-VUE文档说的太少了，让我去细看他的源码，实在没有耐心。仁者见仁智者见智了。
 
 基于VUX的demo代码，改出了一个非常简单的登录页。（VUX的demo也让我很喜欢，几乎就是我需要的前端基本布局了。把我需要东东从VUX的代码中挪到我的项目中。  
-![输入图片说明](https://gitee.com/uploads/images/2017/1208/235716_6af37486_58701.png "1.png")
+![输入图片说明]({{ site.baseurl }}/img/in-post/2017-12-07-gitwriter2-235716_6af37486_58701.png "1.png")
 
 logo没弄，先用Vue的凑合一下，注册页面也没做好，就不放图了。
 
@@ -73,4 +73,4 @@ logo没弄，先用Vue的凑合一下，注册页面也没做好，就不放图�
 - 继续完善登录和注册页面
 - 登录和注册前后端调试。
 - 后端完成BlogTopic模型  
-![输入图片说明](https://gitee.com/uploads/images/2017/1209/000045_a86bb234_58701.png "1.png")
+![输入图片说明]({{ site.baseurl }}/img/in-post/2017-12-07-gitwriter2-000045_a86bb234_58701.png "1.png")

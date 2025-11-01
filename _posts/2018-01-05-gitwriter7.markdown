@@ -47,11 +47,11 @@ setImage: function (file) {
 
 # 进展
 图片上传如下图，点击左上图片后弹出对话框，选择文件后点击插入。   
-![输入图片说明](https://gitee.com/uploads/images/2018/0106/230535_29145214_58701.png "2.png")   
+![输入图片说明]({{ site.baseurl }}/img/in-post/2018-01-05-gitwriter7-230535_29145214_58701.png "2.png")   
 生成图片链接，append到当前的markdown文本中。其他的markdown快捷操作都是类似操作，生成对应的字符，append到文本中，暂时不打算继续做这一部分了。还是先把主要流程完成。   
-![输入图片说明](https://gitee.com/uploads/images/2018/0106/230743_4cc16a47_58701.png "2.png")   
+![输入图片说明]({{ site.baseurl }}/img/in-post/2018-01-05-gitwriter7-230743_4cc16a47_58701.png "2.png")   
 提交后等几秒后，点击进入文章方可看到图片。整个过程有一点缓慢，体验不太好。因为gitee的pages服务重新生成新页面需要时间，另外图片上传操作设计到仓库文件的创建，速度也略慢。好吧，先忍了。   
-![输入图片说明](https://gitee.com/uploads/images/2018/0106/231419_26eb018d_58701.png "2.png")   
+![输入图片说明]({{ site.baseurl }}/img/in-post/2018-01-05-gitwriter7-231419_26eb018d_58701.png "2.png")   
 经测试，手机浏览器上传图片也是可以的。   
 这里遇到一个小问题，就是本地文章刷新的问题，因为本地文章是加载到iframe中的，所以被缓存到本地了，每次加载都是从缓存中拿数据。因此使用了一个小技巧。
 ```

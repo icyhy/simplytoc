@@ -16,13 +16,13 @@ tags:
 注销功能不打算请求后端，因为后端也没有记录用户当前登录的状态。因此注销时，前端直接删除localStorage中存储的授权信息，跳转发现页（发现页也就是首页，不需要要登录授权也可以访问，主要是显示一些公开的热门主题）。
 # 进展 
 此处的代码参考了[X-SONGTAO@VUE2.0博客](http://xiangsongtao.com/)项目（[GIT代码](https://github.com/xiangsongtao )）。这是[vue资源](https://github.com/vuejs/awesome-vue)里推荐的项目。  
-![输入图片说明](https://gitee.com/uploads/images/2017/1210/203215_757e089b_58701.png "1.png")  
+![输入图片说明]({{ site.baseurl }}/img/in-post/2017-12-09-gitwriter3-203215_757e089b_58701.png "1.png")  
 代码的结构很清晰，我参考这个项目也修改了我的部分项目结构。作者说一直都是使用angular，第一次尝试用vue2.0做个项目练手，仅21天项目上线，赞！  
 1、登录  
 前端技能薄弱，凑合着做了。  
-![输入图片说明](https://gitee.com/uploads/images/2017/1210/210505_8d8bc5f1_58701.png "1.png")  
+![输入图片说明]({{ site.baseurl }}/img/in-post/2017-12-09-gitwriter3-210505_8d8bc5f1_58701.png "1.png")  
 登录成功后保存授权信息（下图1），http请求的header增加授权信息（下图2），设置全局登录状态（下图3）  
-![输入图片说明](https://gitee.com/uploads/images/2017/1210/203622_383a53d4_58701.png "1.png")  
+![输入图片说明]({{ site.baseurl }}/img/in-post/2017-12-09-gitwriter3-203622_383a53d4_58701.png "1.png")  
 ```
   var data = {};
         data.username = _this.valueUserName;
@@ -127,10 +127,10 @@ function _checkAuth() {
 3、菜单设置  
 
 根据全局登录状态`isLogin`控制菜单上登录和退出的显示。  
-![输入图片说明](https://gitee.com/uploads/images/2017/1210/204706_c2f867e5_58701.png "1.png")  
+![输入图片说明]({{ site.baseurl }}/img/in-post/2017-12-09-gitwriter3-204706_c2f867e5_58701.png "1.png")  
 效果如下：  
-![输入图片说明](https://gitee.com/uploads/images/2017/1210/204810_39943d37_58701.png "1.png")
-![输入图片说明](https://gitee.com/uploads/images/2017/1210/204900_42c155e8_58701.png "1.png")
+![输入图片说明]({{ site.baseurl }}/img/in-post/2017-12-09-gitwriter3-204810_39943d37_58701.png "1.png")
+![输入图片说明]({{ site.baseurl }}/img/in-post/2017-12-09-gitwriter3-204900_42c155e8_58701.png "1.png")
 
 4、注销
 注销仅仅删除前端的授权信息，然后跳转首页（发现页）。

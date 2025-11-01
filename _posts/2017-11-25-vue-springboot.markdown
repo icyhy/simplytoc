@@ -25,7 +25,7 @@ Vue-CLI：2.9.1
 具体怎么安装node，怎么安装vue-cli，怎么通过vue-cli建立脚手架项目，下面就不赘述了。
 
  **一、 IntelliJ建立一个空Gradle project，既不要选java也不要选web **  
-![输入图片说明](https://gitee.com/uploads/images/2017/1126/234708_7f697905_58701.png "1.png")
+![输入图片说明]({{ site.baseurl }}/img/in-post/2017-11-25-vue-springboot-234708_7f697905_58701.png "1.png")
 
  **二、 建立前后端子项目 **  
 分别建立两个module,一个名叫server，勾选java，另一个名叫web，勾选web。过程中gradle可以选local。  

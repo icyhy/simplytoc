@@ -15,16 +15,16 @@ tags:
 好吧，前期铺垫就这么多。我一直以来使用的ngrok服务都是国内的，因为之前尝试ngrok官网提供的服务真是太慢了，时断时续，而且免费服务域名是随机的（有钱人可以考虑花钱买一个固定域名的服务，我就不想了）。但国内有不少人自己编译了ngrokd源码，部署了相应的服务，并放出来供大家免费使用。日子一直就是这么过的，没想到前两天我用的tunnel.qydev.com提供的服务前两天挂了。哎，平时不觉得，没有了发现还真是不行。  
 上网翻箱倒柜的找，发现不知道什么时候网上已经没有免费的ngrok服务了，收费的我不敢也不愿意尝试。走投无路了，又回到ngrok官网。注册成功，再次使用，发现速度还是比较稳定的。终于送了一口气，虽然域名还是随机的，每次启动都会变，但起码能用了。在此就直接推荐官网吧。  
 - 首先去[ngrok官网](https://ngrok.com/)注册账户。  
-![输入图片说明](https://gitee.com/uploads/images/2017/1218/234311_410952c1_58701.png "1.png")  
+![输入图片说明]({{ site.baseurl }}/img/in-post/2017-12-17-ngrok-234311_410952c1_58701.png "1.png")  
 程序下载也在首页下方，可以先下载再去注册。  
-![输入图片说明](https://gitee.com/uploads/images/2017/1218/234403_34e93996_58701.png "1.png")  
+![输入图片说明]({{ site.baseurl }}/img/in-post/2017-12-17-ngrok-234403_34e93996_58701.png "1.png")  
 [windows版本](https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip)  
 [OS X版本](https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-darwin-amd64.zip)  
 [Linux版本](https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip)  
 注册登录后，进入的页面非常重要  
-![输入图片说明](https://gitee.com/uploads/images/2017/1218/234820_75f5a10d_58701.png "1.png")  
+![输入图片说明]({{ site.baseurl }}/img/in-post/2017-12-17-ngrok-234820_75f5a10d_58701.png "1.png")  
 这里的两行命令`./ngrok authtoken xxxxxxxxxxxxxxxxxxxxxxxxxxxx`和`./ngrok http 80`就是下载下来ngrok.exe文件后，在本地需要执行的命令，第一行是第一次使用时执行一次即可，第二行时启动ngrok，映射本地的http 80服务到外网上，显示如下图就说明成功了。外网可访问的域名也在其中。  
-![输入图片说明](https://gitee.com/uploads/images/2017/1218/235032_cfbdd5b6_58701.png "1.png")  
+![输入图片说明]({{ site.baseurl }}/img/in-post/2017-12-17-ngrok-235032_cfbdd5b6_58701.png "1.png")  
 # 结果
 不知道和我做类似开发的人，除了ngrok是否还有别的工具可用，期待将来能有更好的解决办法。毕竟这样不太爽，万一哪天官网又抽风，想找个好用的免费服务不容易。国内现在提供此类服务的大多是收费的，免费的要么不通要么不好用，失望啊。ngrok是开源的，其实也可以自己申请个域名部署到云上，网上教程很多，不过需要自己有域名的。
 

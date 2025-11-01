@@ -26,7 +26,7 @@ module.exports = {
 ```
 var assetsRoot = path.resolve(__dirname, '../build/resources/main/static') 
 ```
-![输入图片说明](https://gitee.com/uploads/images/2017/1204/225841_45a8a2f4_58701.png "1.png")
+![输入图片说明]({{ site.baseurl }}/img/in-post/2017-12-03-vue-springboot-225841_45a8a2f4_58701.png "1.png")
 
 这下尴尬了，在index.html文件中想要引用static目录中的文件，按理应该使用/assets/plugins/xxx的方式，因为最终打包成springboot的jar包后，里面的静态文件路径就是这样的（将web.jar解压后可以看到），但调试时，直接使用npm run dev时，index.html按照这个路径是找不到文件的，还是需要使用/static/plugins/xxx的方式。
 

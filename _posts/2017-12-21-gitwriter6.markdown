@@ -12,7 +12,7 @@ tags:
 - 主题编辑页面（markdown编辑）
 # 设计思路
 进展到markdown编辑功能的时候，碰到了一个很严峻的问题。就是markdown文件中的图片存在哪里的问题？  
-![输入图片说明](https://gitee.com/uploads/images/2017/1222/234024_1c413787_58701.png "1.png")   
+![输入图片说明]({{ site.baseurl }}/img/in-post/2017-12-21-gitwriter6-234024_1c413787_58701.png "1.png")   
 在gitee网站上编辑markdown文件时，点击图片按键，弹出图片上传对话框，如上图，选择图片后，图片被上传到gitee的uploads目录下，其实是一个公共目录，和本项目没啥关系，生成上述`https://gitee.com/uploads/images/2017/1222/234024_1c413787_58701.png`外链，访问这个外链是不需要gitee授权的（所以才叫外链嘛）。问题在于gitee开放的openapi中，没有图片上传的api（可以理解嘛，人家本来也不想提供一个公开的免费的图片仓库）。只有在使用码云的pages服务，并且在码云的在线markdown编辑页面中，才能够使用它的图片上传。  
  
 说的有点绕了，简言之，就是第三方app没法使用码云的图片上传功能，拿到授权也不行。怎么办呢？首先想到的几种思路如下：
@@ -33,7 +33,7 @@ data:image/gif;base64,R0lGODlhHAAmAKIHAKqqqsvLy0hISObm5vf394uLiwAAAP///yH5B…Eo
 
 # 进展
 截至目前，就得到这么多。   
-![输入图片说明](https://gitee.com/uploads/images/2017/1223/003014_88ce0cc5_58701.png "1.png")   
+![输入图片说明]({{ site.baseurl }}/img/in-post/2017-12-21-gitwriter6-003014_88ce0cc5_58701.png "1.png")   
 实现了一个简单的编辑界面，使用了marked.js
 
 # 总结

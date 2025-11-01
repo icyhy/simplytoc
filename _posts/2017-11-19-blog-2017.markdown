@@ -21,7 +21,7 @@ Blog搭建完成后，回过头来一看，原来也没有什么。正如网上�
 
 jekyll安装需要有Ruby，RubyGems。linux环境就不多说了，windows环境略微麻烦，Ruby需要使用[RubyInstaller](https://rubyinstaller.org/downloads/),（请做好骂人的心理准备），别忘记了下载页面下方的Delevelopment Kit，编译的时候需要，我就是没装这个，编译时一堆莫名其妙的错误，查了半天才发现是这个没装。安装完成后，可以控制台输入ruby -v测试一下。
 
-![输入图片说明](https://gitee.com/uploads/images/2017/1120/001147_98da302f_58701.png "2017-11-20 00 09 55.png")
+![输入图片说明]({{ site.baseurl }}/img/in-post/2017-11-19-blog-2017-001147_98da302f_58701.png "2017-11-20 00 09 55.png")
 
 接下来安装[RubyGems](https://rubygems.org/pages/download)，这个是压缩包，解压到本地（建议根路径下，如D:），然后控制台进入文件夹，输入ruby setup.rb，安装完成。需要将RubyGems的bin路径添加到环境变量Path里面。gem就是ruby对应的包管理工具，就像npm，maven一样。
 

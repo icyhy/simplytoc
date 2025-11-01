@@ -14,10 +14,10 @@ tags:
 ``` Import declarations are not supported by current JavaScript version ```
 。不影响编译使用，但满地的红线看着难受。
 
-![输入图片说明](https://gitee.com/uploads/images/2017/1123/142028_dc8b814b_58701.png "1.png")
+![输入图片说明]({{ site.baseurl }}/img/in-post/2017-11-22-js-2017-142028_dc8b814b_58701.png "1.png")
 
 ## 解决办法
 prefrences-->Languages & Frameworks -->JavaScript--->React JSX，
-![输入图片说明](https://gitee.com/uploads/images/2017/1123/142313_aa85b761_58701.png "1.png")
+![输入图片说明]({{ site.baseurl }}/img/in-post/2017-11-22-js-2017-142313_aa85b761_58701.png "1.png")
 
 webstorm同理。

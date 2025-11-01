@@ -16,6 +16,6 @@ tags:
 字帖上前118个常见字终于练烦了，从今天开始练4个字成语。多接触一点生字吧。平时经常碰到一个略复杂的字发现没有练过，书写出来十分难看，还有几个字反复的练也不得其法。如教、这、意等，感觉女字旁、心字旁至今没有掌握要领。
 
 # 秀字
-![输入图片说明](https://gitee.com/uploads/images/2018/0102/232059_b45e838b_58701.jpeg "1.jpg")   
-![输入图片说明](https://gitee.com/uploads/images/2018/0102/232121_a8103bdf_58701.jpeg "2.jpg")
+![输入图片说明]({{ site.baseurl }}/img/in-post/2018-01-01-writing3-232059_b45e838b_58701.jpeg "1.jpg")   
+![输入图片说明]({{ site.baseurl }}/img/in-post/2018-01-01-writing3-232121_a8103bdf_58701.jpeg "2.jpg")
 
