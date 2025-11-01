@@ -5,8 +5,8 @@ header-img: img/home-bg.jpg
 email: huangyangh2004@gmail.com
 description: "一路蹒跚前行"
 keyword: ""
-url: "http://huangyang.gitee.io"              # your host, for absolute URL
-baseurl: ""         # for example, '/blog' if your blog hosted on 'host/blog'
+url: "https://icyhy.github.io"              # GitHub Pages 用户站点根域名
+baseurl: "/simplytoc"         # 项目页的子路径（仓库名）
 
 
 
