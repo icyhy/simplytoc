@@ -1,104 +1,42 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simply TOC - 个人品牌网站</title>
-    <meta name="description" content="程序员个人品牌网站，分享项目作品、技术博客和编程心得">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- 导航栏 -->
-    <header class="header">
-        <nav class="nav">
-            <div class="nav-container">
-                <a href="index.html" class="nav-logo">Simply TOC</a>
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link active">首页</a></li>
-                    <li><a href="about.html" class="nav-link">关于我</a></li>
-                    <li><a href="projects.html" class="nav-link">项目</a></li>
-                    <li><a href="blog.html" class="nav-link">博客</a></li>
-                    <li><a href="contact.html" class="nav-link">联系</a></li>
-                </ul>
-                <div class="nav-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </nav>
-    </header>
+---
+layout: page
+description: "一路蹒跚前行"
+---
 
-    <main>
-        <!-- Hero 区域 -->
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="hero-title">Hello, I'm a Developer</h1>
-                    <p class="hero-subtitle">专注于创造优雅的代码解决方案，分享编程路上的思考与成长</p>
-                    <div class="hero-actions">
-                        <a href="projects.html" class="btn btn-primary">查看项目</a>
-                        <a href="contact.html" class="btn btn-secondary">联系我</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 最新项目 -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title">最新项目</h2>
-                <div class="projects-grid" id="featured-projects">
-                    <!-- 项目卡片将通过 JavaScript 动态加载 -->
-                </div>
-                <div class="section-footer">
-                    <a href="projects.html" class="link">查看所有项目 →</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- 最新博客 -->
-        <section class="section section-alt">
-            <div class="container">
-                <h2 class="section-title">最新博客</h2>
-                <div class="blog-grid" id="recent-posts">
-                    <!-- 博客卡片将通过 JavaScript 动态加载 -->
-                </div>
-                <div class="section-footer">
-                    <a href="blog.html" class="link">查看所有文章 →</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- 技能标签 -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title">技术栈</h2>
-                <div class="skills-tags" id="skills-tags">
-                    <!-- 技能标签将通过 JavaScript 动态加载 -->
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- 页脚 -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 Simply TOC. Built with passion and code.</p>
-                <div class="social-links">
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-link">GitHub</a>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn</a>
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link">Twitter</a>
-                </div>
-            </div>
+{% for post in paginator.posts %}
+<div class="post-preview">
+    <a href="{{ post.url | prepend: site.baseurl }}">
+        <h2 class="post-title">
+            {{ post.title }}
+        </h2>
+        {% if post.subtitle %}
+        <h3 class="post-subtitle">
+            {{ post.subtitle }}
+        </h3>
+        {% endif %}
+        <div class="post-content-preview">
+            {{ post.content | strip_html | truncate:200 }}
         </div>
-    </footer>
+    </a>
+    <p class="post-meta">
+        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
+    </p>
+</div>
+<hr>
+{% endfor %}
 
-    <script src="js/main.js"></script>
-</body>
-</html>
+<!-- Pager -->
+{% if paginator.total_pages > 1 %}
+<ul class="pager">
+    {% if paginator.previous_page %}
+    <li class="previous">
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+    </li>
+    {% endif %}
+    {% if paginator.next_page %}
+    <li class="next">
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+    </li>
+    {% endif %}
+</ul>
+{% endif %}

@@ -1,0 +1,23 @@
+---
+layout:     post
+title:      "Welcome to 天坑' Blog"
+subtitle:   " \"Hello World, Hello Blog\""
+date:       2017-11-18 11:00:00
+author:     "huangyang"
+header-img: "img/post-bg-2015.jpg"
+tags:
+    - 生活
+---
+
+> “Yeah It's on. ”
+
+
+## 前言
+
+天坑 的 Blog 就这么开通了。每当别人问我，你是做什么的？我回答到，我是一个程序员。声音响亮，态度坚定。但每到夜深人静，我自己问自己，我到底是一个什么样的程序员？我的水平怎么样？我能写什么程序？我能对别人宣称自己是一个好程序员么？我还无法回答，一个程序员优秀的品质，我还有很多不具备，甚至有时候觉得自己具备的优秀品质也没多少，太可怕了。一个程序员的悲哀就是写了一辈子程序，还无法确信自己是一个合格的程序员。万幸年华虽然老去，兴趣依然不减。所以在自己的博客上提醒自己一声，学习学习再学习吧，我就是要当一个合格的程序员，哪怕是一个蹒跚前行的“老人”。
+
+
+## 致谢
+
+1. 这个模板是从这里[Huxpro/huxpro.github.io](https://github.com/Huxpro/huxpro.github.io)  fork 的。 感谢这个作者
+2. 感谢 Jekyll、Github Pages 和 Bootstrap!

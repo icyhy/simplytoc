@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="一路蹒跚前行">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>PMP考试准备2 - icyhy | pages</title>
+
+    <link rel="canonical" href="http://localhost:4000/2017/12/24/pmp2/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">天坑</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/">Tags</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/README.zh/">一个程序员的个人博客</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/post-bg-2015.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/post-bg-2015.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#pmp" title="pmp">pmp</a>
+                        
+                    </div>
+                    <h1>PMP考试准备2</h1>
+                    
+                    
+                    <h2 class="subheading"> "培训结束"</h2>
+                    
+                    <span class="meta">Posted by huangyang on December 24, 2017</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+				<h1 id="说在前面的话">说在前面的话</h1>
+<p>今天是圣诞平安夜，也是pmp培训课程最后一天。正式的上课就结束了，剩下还有3次模拟考试，几次小组活动，然后就是明年3月底的最终大考。今晚决定放纵一晚，不碰教材，不看讲义，总之和pmp有关的书一概不看，写完这篇博客就去看看电影，打打游戏，争取早点上床好好补个觉。明天就是新的开始。</p>
+
+<h1 id="体会">体会</h1>
+<p>连续两个周末，第一个周末2天，这个周末从周五开始到今天，一共5天的课程，早上9到下午4点半，每天其实大约5个半小时，上午下午课间休息15分钟，中午休息1个半小时。</p>
+
+<p>唯一的感觉就是累。头两天上课，感觉脑袋还比较清醒，一方面开头几章比较容易理解，同时书看的也比较多。但到了这周，连续3天课程，真感觉有点吃不消。教材虽然提前通读了一遍，但是如走马观灯般的阅读，脑子里留下的实在不多，上课的进度飞快，稍不留神，可能几个知识点就过去了，需要笔记的地方很多，几乎不停的在记，从第一天上课到现在，两根签字笔油用完了。有图有真相，这是今天那根。
+<img src="https://gitee.com/uploads/images/2017/1224/214602_b9860ce6_58701.jpeg" alt="输入图片说明" title="1.jpg" /> <br />
+总之，脑子大部分时间都处于紧张状态，手也没怎么停，这样的强度，对于我现在来说有点吃力了。不过好在坚持下来了。内心里，对我自己听课的质量是能给一个及格分的，毕竟没有虚度光阴，尽最大可能去听了。</p>
+
+<p>这一段时间每天晚上看书的时间控制在1-1.5小时，加上上班地铁上看书的时间，感觉这个时间投入应该足够了，毕竟PMP只是我年度计划的一部分，没必要把其他所有计划都停了。</p>
+
+<p>上课虽然累，但是感觉还是挺有意思的。第一，离开学校多年，很久没有这么正经的上课备考了，依稀找回点学校的感觉（只是依稀），只要摸摸我的草包肚子，这种感觉顿时消失的无影无踪。第二，老师确实给力。陈钢老师1400场的培训经验果然不是浪得虚名。感觉PMP的理论已经烂熟于胸，随口说来的话都严丝合缝，让人感觉到体系严谨的“美”。另外老师书本外的实践体会也讲的很透彻，很多地方能让人会心一笑，不是理论加实践很多年的人，应该说不出这样的话来。老师秀他自己的加油记录、装修记录等等“清单”，也非常真实。确实是把项目管理的很多理念身体力行了，讲的很多就是他自己的心里话，不是为了培训拼凑素材，这一点尤其让人反思，习惯的养成其实对人自身的提升价值更大，远比考过一个证，读过几本书有价值，老师的一些日常习惯（如拉清单、做计划、沟通、谈判、寻求专家帮助的解决问题思路等）为他工作成功及生活幸福发挥了很大的作用。至于是先有的习惯，后来学习了理论去巩固习惯，还是先学了理论，之后逐步培养了习惯就不得而知了。我要不要尝试着培养一些好的生活习惯，是我接下来要尝试甚至于教导我的孩子去尝试的的事情。</p>
+
+<p>今天培训结业了，大家拍照留念，也拿到了培训完成证书。秀一下，其实时间还是太短，同一个组的同学们还大都叫不上名字，昨天小组活动去吃饭，也就身边的几个人记住名字，多聊了几句。希望多年后，看到照片，还能记着这次培训过程中见过的人，去过的地方，做过的事。 <br />
+<img src="https://gitee.com/uploads/images/2017/1224/221011_67000269_58701.jpeg" alt="输入图片说明" title="1.jpg" /> <br />
+中间的就是老师，这个一眼就能看出来吧，组长是男生颜值担当，猜猜是那个？<br />
+<img src="https://gitee.com/uploads/images/2017/1224/221123_f5ff7637_58701.jpeg" alt="输入图片说明" title="1.jpg" /><br />
+这个条幅是P出来的，就是我们12组的口号，太有才了。<br />
+<img src="https://gitee.com/uploads/images/2017/1224/221228_0f2fb4e6_58701.jpeg" alt="输入图片说明" title="1.jpg" /> <br />
+培训结业证书，压着的是讲义。</p>
+
+<h1 id="下一步计划">下一步计划</h1>
+<p>好吧，上课体会就这么多，毕竟备考的路才开了个头，离走完还早呢，接下到1月14日第一次模拟考试还有3周的时间。计划把教材和讲义全部精读一边，尤其是要将讲义上的知识点和书上的对照着看看先。这个阶段还是看书为主，“强书”里面带着的习题做做就行了，不打算大批量的做题。到下一个阶段再考虑增加题量。</p>
+
+
+                <hr>
+
+                
+
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2017/12/22/gitwriter6/" data-toggle="tooltip" data-placement="top" title="gitwriter项目6">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2017/12/26/pmp3/" data-toggle="tooltip" data-placement="top" title="PMP考试准备3">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+
+                
+                <!-- 多说评论框 start -->
+                <div class="comment">
+                    <div class="ds-thread"
+                        data-thread-key="/2017/12/24/pmp2"
+                        data-title="PMP考试准备2"
+                        data-url="http://localhost:4000/2017/12/24/pmp2/" >
+                    </div>
+                </div>
+                <!-- 多说评论框 end -->
+                
+
+                
+
+            </div>
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+        				
+                            
+                				<a href="/tags/#生活" title="生活" rel="2">
+                                    生活
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#jekyll" title="jekyll" rel="1">
+                                    jekyll
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#IntelliJ" title="IntelliJ" rel="1">
+                                    IntelliJ
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#SpringBoot" title="SpringBoot" rel="2">
+                                    SpringBoot
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#阿里云" title="阿里云" rel="2">
+                                    阿里云
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#钢笔字" title="钢笔字" rel="3">
+                                    钢笔字
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#gitwriter" title="gitwriter" rel="7">
+                                    gitwriter
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#pmp" title="pmp" rel="6">
+                                    pmp
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#web" title="web" rel="1">
+                                    web
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#游记" title="游记" rel="1">
+                                    游记
+                                </a>
+                            
+        				
+        			</div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+                    
+                        <li><a href="https://gitee.com/xknife">大侃</a></li>
+                    
+                        <li><a href="http://cripps.gitee.io/">克瑞普斯豆</a></li>
+                    
+                        <li><a href="#">丙</a></li>
+                    
+                        <li><a href="#">丁</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    // dynamic User by Hux
+    var _user = 'icyhy';
+
+    // duoshuo comment query.
+    var duoshuoQuery = {short_name: _user };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+
+                    <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
+                    
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/icyhy">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="http://weibo.com/1025895004">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/icyhy">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/icyhy">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 天坑 2025
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a>
+                    <br>
+                    <div style="TEXT-ALIGN: center;">
+                        <div style="MARGIN-RIGHT: auto;MARGIN-LEFT: auto;">
+                            <script src='//gitee.com/huangyang/huangyang/star_widget_preview'></script>
+                        </div>
+                    </div>
+                    <br>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-49627206-1';
+    var _gaDomain = 'huangxuan.me';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '4cc1f2d8f3067386cc5cdb626a202900';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+---
+layout:     post
+title:      "gitwriter项目5"
+subtitle:   " \"gitee授权\""
+date:       2017-12-19 23:29:00
+author:     "huangyang"
+header-img: "img/post-bg-2015.jpg"
+tags:
+    - gitwriter
+---
+# 当前目标 
+- 实现一个简单的“我的”页面，用于显示用户创建的和参与的主题列表（“参与的”下一步再说）
+- 点击主题列表，跳转到对应的博客页面
+
+# 设计思路
+新建topic时，创建的BlogTopic对象中存储项目仓库相关的信息，也存储着topic创建用户和参与用户列表的信息
+```
+    private String id;
+    /**
+     * 名称
+     */
+    private String name;
+    /**
+     * 主题对应的html地址
+     */
+    private String url;
+    /**
+     * 主题的作者
+     */
+    private String writer;
+    /**
+     * 主题的发起者，也是主题的拥有者
+     */
+    private String owner;
+    /**
+     * 项目路径(path)
+     */
+    private String repo;
+
+    /**
+     * 文件Blob的SHA值
+     */
+    private String sha;
+
+    /**
+     * 原始文件下载地址
+     */
+    private String downloadUrl;
+
+
+    private List<String> developers;
+
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date createDate;
+```   
+根据用户信息检索到用户创建的或参与的topic列表，返回前端，这里要考虑分页的机制，将来topic会很多。topic创建的时候，计算出topic对应的pages服务生成的网页的地址（如果使用gitee的pages服务，jekyll生成的页面html地址时有规律的），点击主题列表中的某一项，则跳转到内容展示页面，内容展示页面内嵌一个iframe，加载主题对应的pages博客页面。   
+
+这里暂时不考虑使用统一的展现形式（app根据主题的markdown内容来统一生成展现页面）。这样做的好处有两点，  
+- 主题的创建者可以再创建主题的时候，选择要提交的仓库（只有使用默认仓库的，才使用应用预定义的仓库里面的pages服务和模板来生成页面），根据目前仓库里面pages模板，生成的页面风格是各不相同的，也是创建者能控制的（一般就是创建者自己拥有的仓库），这样主题展现的风格多样化。“简书”里面的主题是应用自定义的，风格基本都是一致的，对于我这样想追寻自定义风格的人来说就不太理想
+- 毕竟通过markdown来动态生成pages页面还是需要服务器运算资源的（如果将生成的pages页面预存下来，那更不可取，那样我就没必要通过gitee来做了，干脆自己做一个markdown在线博客就得了。），这样做，等于充分发挥了gitee pages服务的优势，我的应用只是集成了各个页面。是信息汇总的一个入口罢了。  
+总的来说，就是充分借力gitee现有的服务（也完全可以借力github服务，这个后期再说），我的应用仿佛趴在大象身上的蚂蚁，也能跟着看的远一些。   
+# 进展
+创建topic的过程就是向gitee仓库提交新增的markdown文件的过程，因此创建成功后的返回非常重要，包含了文件远程访问的相关信息。上文中的BlogTopic类已经存储了有价值的一些数据。调用的函数如下（api调用文档请看[官方文档](https://gitee.com/api/v5/swagger#/postV5ReposOwnerRepoContentsPath)）：
+```
+    public String newFile(String accessToken, String owner, String repo, String path, String fileContent, String message, String branch){
+        String url = String.format(NEW_FILE_URL, owner, repo, path);
+        Request request = new Request(Verb.POST, url);
+        /**
+         * 用户授权码
+         */
+        request.addBodyParameter(OAuthConstants.ACCESS_TOKEN, accessToken);
+        /**
+         * 文件内容, 要用base64编码
+         */
+        request.addBodyParameter(GiteeApiConstant.CONTENT,base64Encode(fileContent));
+        /**
+         * 提交信息
+         */
+        request.addBodyParameter(GiteeApiConstant.MESSAGE,message);
+        /**
+         * 分支名称。默认为项目对默认分支
+         */
+        request.addBodyParameter(GiteeApiConstant.BRANCH, branch);
+        Response response = request.send();
+        return response.getBody();
+    }
+```
+调用成功后生成BlogTopic实例存入库中。“我的”页面里的列表展示没什么可说的，下拉自动刷新用了vue-infinite-scroll这个控件，使用可参考[官方仓库](https://github.com/ElemeFE/vue-infinite-scroll)，好用，没啥可说的   
+![输入图片说明](https://gitee.com/uploads/images/2017/1220/235721_a3d6196c_58701.png "2.png")
+目前列表里显示的内容还未完成，仅显示了一个标题和创建日期，副标题和内容都是乱写的（迟些再说，先把topic的提交，更新等流程跑通）。点击链接后跳转到topic内容展示   
+![输入图片说明](https://gitee.com/uploads/images/2017/1220/235919_61a91c43_58701.png "3.png")   
+点击右上角的图标进入操作页（计划把操作入口放在右上角，具体的操作内容会因页面不同而变化）   
+![输入图片说明](https://gitee.com/uploads/images/2017/1221/000039_31181ada_58701.png "4.png")   
+
+# 总结
+大约10天前报名pmp开始，之后我每天晚上要留出1个半小时看书，还要留出45分钟至1个小时练字，所以每天写这个项目的时间也就大约1个小时（算上写博客的时间，也许还不到1个小时）。项目进展速度不得不放慢下来。但是还是坚持着不要停的往前走。慢一点没关系。眼看着项目一点一点的实现我的构想，还是挺开心的。以后下一步目标定的少一点吧，争取每次写博客的时候都能完成。   
+# 下一步目标
+- 主题编辑页面（markdown编辑）

@@ -1,0 +1,165 @@
+---
+layout:     post
+title:      "gitwriter项目3"
+subtitle:   " \"token控制、注销、菜单规划\""
+date:       2017-12-9 19:45:00
+author:     "huangyang"
+header-img: "img/post-bg-2015.jpg"
+tags:
+    - gitwriter
+---
+# 当前目标  
+- 继续完善登录和注册页面
+- 登录和注册前后端调试。
+# 设计思路  
+服务端登录、注册相关控制器方法，用户登录时能够生成jwt token，并返回。那么前端登录成功后，需要保存token信息（保存到$localStorage中），设置前端http请求的header（需要包含token授权信息），设置全局登录状态（使用vuex）。路由设置登录状态检查，使用vue-router,在router.beforeEach中检查授权信息。如果需要授权才能访问的页面，没有登录则自动跳转到登录页面。根据登录状态，切换菜单中的“登录”为“退出”。  
+注销功能不打算请求后端，因为后端也没有记录用户当前登录的状态。因此注销时，前端直接删除localStorage中存储的授权信息，跳转发现页（发现页也就是首页，不需要要登录授权也可以访问，主要是显示一些公开的热门主题）。
+# 进展 
+此处的代码参考了[X-SONGTAO@VUE2.0博客](http://xiangsongtao.com/)项目（[GIT代码](https://github.com/xiangsongtao )）。这是[vue资源](https://github.com/vuejs/awesome-vue)里推荐的项目。  
+![输入图片说明](https://gitee.com/uploads/images/2017/1210/203215_757e089b_58701.png "1.png")  
+代码的结构很清晰，我参考这个项目也修改了我的部分项目结构。作者说一直都是使用angular，第一次尝试用vue2.0做个项目练手，仅21天项目上线，赞！  
+1、登录  
+前端技能薄弱，凑合着做了。  
+![输入图片说明](https://gitee.com/uploads/images/2017/1210/210505_8d8bc5f1_58701.png "1.png")  
+登录成功后保存授权信息（下图1），http请求的header增加授权信息（下图2），设置全局登录状态（下图3）  
+![输入图片说明](https://gitee.com/uploads/images/2017/1210/203622_383a53d4_58701.png "1.png")  
+```
+  var data = {};
+        data.username = _this.valueUserName;
+        data.password = _this.valuePassword;
+
+        Login(data).then(function(response){
+            //权限信息
+            _this.$localStorage.$set('authorization', {
+              token: response.token,
+              time: new Date().getTime()
+            });
+            // 设置请求的token
+            Vue.http.defaults.headers.common['authorization'] = "token " + response.token;
+            _this.setLoginState(true);//设置全局登录状态
+            _this.$router.replace({//跳转
+              name: 'Home'
+            });
+          }, (err)=> {
+          _this.tips = err;
+          }
+        );
+```
+登录的http请求部分放在独立的js文件中，代码如下：  
+```
+export const Login = function (params) {
+  return new Promise(function (resolve, reject) {
+    Vue.http.post(API.login,params).then((response) => {
+      // success callback
+      let result = response.data;
+      if (parseInt(result.code) === 0) {
+        resolve(result);
+      } else {
+        reject(doError(result.code, result.msg));
+      }
+    }, () => {
+      reject(API.SYS_ERR)
+    });
+  })
+};
+```
+2、路由设置  
+检查路由的meta.requiresAuth属性，需要验证的则判断当前的授权信息，验证失败则跳转登录页面。   
+
+```
+/**
+ * 登录状态检查
+ **/
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    // 未登录状态
+    if (!store.state.isLogin) {
+      //存在authorization信息，则验证下。
+      if (!!Vue.$localStorage.authorization) {
+        _checkAuth().then(function () {
+          next();
+        },function () {
+          next({
+            name: 'Login',
+          })
+        });
+      } else {
+        next({
+          name: 'Login',
+        })
+      }
+    } else {
+      _checkAuth().then(function () {
+        next();
+      },function () {
+        next({
+          name: 'Login',
+        })
+      });
+    }
+  } else {
+    next(); // 确保一定要调用 next()
+  }
+});
+
+/**
+ * Token验证，只是对时间验证过期否
+ **/
+function _checkAuth() {
+  return new Promise(function (resolve, reject) {
+    let authorization = Vue.$localStorage.authorization;
+    let time = parseInt(authorization.time);
+    if ((new Date().getTime() - time) < 1000 * 60 * 60 * 2) {
+      //token有效,能进入
+      store.dispatch('setLoginState',true);
+      // 设置请求的token
+      Vue.http.defaults.headers.common['authorization'] = "token " + authorization.token;
+      resolve();
+    } else {
+      Vue.$localStorage.$delete('authorization');
+      store.dispatch('setLoginState',false);
+      reject();
+    }
+  })
+}
+```
+
+3、菜单设置  
+
+根据全局登录状态`isLogin`控制菜单上登录和退出的显示。  
+![输入图片说明](https://gitee.com/uploads/images/2017/1210/204706_c2f867e5_58701.png "1.png")  
+效果如下：  
+![输入图片说明](https://gitee.com/uploads/images/2017/1210/204810_39943d37_58701.png "1.png")
+![输入图片说明](https://gitee.com/uploads/images/2017/1210/204900_42c155e8_58701.png "1.png")
+
+4、注销
+注销仅仅删除前端的授权信息，然后跳转首页（发现页）。
+```
+//注销
+      logout: function () {
+        const _this = this;
+        setTimeout(function () {
+          _this.$localStorage.$delete('authorization');
+          _this.setLoginState(false);// 登录状态
+
+          _this.$router.push({
+            name: 'Home'
+          });
+        }, 200);
+      },
+```
+5、补充
+前后端联调的时候，碰到了跨域问题。在springboot controller里增加@CrossOrigin注解，搞定。不过只在开发调试时会碰到这个问题，因为开发的时候npm run dev端口3000（项目中配置的），服务端80。部署后不存在这个问题。  
+# 总结
+截至目前，前后端的项目目录结构基本确定，主要的技术栈也已经确定。确定了几个功能页面：
+- 登录、退出、注册
+- 发起主题：创建主题（允许创建公开主题或私有主题）
+- 授权管理：gitee授权、微信授权，这是进行微信操作和gitee操作必须的，如果没有授权则只能查看主题，无法参与主题
+- 设置
+- 反馈、Gitee
+- 发现：公开的推荐的热门主题列表（创建主题的时候可以选择是否公开），在此页面也能搜索公开主题，能根据授权码搜索私有主题
+- 我的：我参与的主题  
+# 下一步目标
+- 授权管理页
+- 微信授权
+- gitee授权

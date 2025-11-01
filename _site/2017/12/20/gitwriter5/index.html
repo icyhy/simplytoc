@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="一路蹒跚前行">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>gitwriter项目5 - icyhy | pages</title>
+
+    <link rel="canonical" href="http://localhost:4000/2017/12/20/gitwriter5/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">天坑</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/">Tags</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/README.zh/">一个程序员的个人博客</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/post-bg-2015.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/post-bg-2015.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#gitwriter" title="gitwriter">gitwriter</a>
+                        
+                    </div>
+                    <h1>gitwriter项目5</h1>
+                    
+                    
+                    <h2 class="subheading"> "gitee授权"</h2>
+                    
+                    <span class="meta">Posted by huangyang on December 20, 2017</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+				<h1 id="当前目标">当前目标</h1>
+<ul>
+  <li>实现一个简单的“我的”页面，用于显示用户创建的和参与的主题列表（“参与的”下一步再说）</li>
+  <li>点击主题列表，跳转到对应的博客页面</li>
+</ul>
+
+<h1 id="设计思路">设计思路</h1>
+<p>新建topic时，创建的BlogTopic对象中存储项目仓库相关的信息，也存储着topic创建用户和参与用户列表的信息</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    private String id;
+    /**
+     * 名称
+     */
+    private String name;
+    /**
+     * 主题对应的html地址
+     */
+    private String url;
+    /**
+     * 主题的作者
+     */
+    private String writer;
+    /**
+     * 主题的发起者，也是主题的拥有者
+     */
+    private String owner;
+    /**
+     * 项目路径(path)
+     */
+    private String repo;
+
+    /**
+     * 文件Blob的SHA值
+     */
+    private String sha;
+
+    /**
+     * 原始文件下载地址
+     */
+    private String downloadUrl;
+
+
+    private List&lt;String&gt; developers;
+
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date createDate;
+</code></pre></div></div>
+<p>根据用户信息检索到用户创建的或参与的topic列表，返回前端，这里要考虑分页的机制，将来topic会很多。topic创建的时候，计算出topic对应的pages服务生成的网页的地址（如果使用gitee的pages服务，jekyll生成的页面html地址时有规律的），点击主题列表中的某一项，则跳转到内容展示页面，内容展示页面内嵌一个iframe，加载主题对应的pages博客页面。</p>
+
+<p>这里暂时不考虑使用统一的展现形式（app根据主题的markdown内容来统一生成展现页面）。这样做的好处有两点，</p>
+<ul>
+  <li>主题的创建者可以再创建主题的时候，选择要提交的仓库（只有使用默认仓库的，才使用应用预定义的仓库里面的pages服务和模板来生成页面），根据目前仓库里面pages模板，生成的页面风格是各不相同的，也是创建者能控制的（一般就是创建者自己拥有的仓库），这样主题展现的风格多样化。“简书”里面的主题是应用自定义的，风格基本都是一致的，对于我这样想追寻自定义风格的人来说就不太理想</li>
+  <li>毕竟通过markdown来动态生成pages页面还是需要服务器运算资源的（如果将生成的pages页面预存下来，那更不可取，那样我就没必要通过gitee来做了，干脆自己做一个markdown在线博客就得了。），这样做，等于充分发挥了gitee pages服务的优势，我的应用只是集成了各个页面。是信息汇总的一个入口罢了。<br />
+总的来说，就是充分借力gitee现有的服务（也完全可以借力github服务，这个后期再说），我的应用仿佛趴在大象身上的蚂蚁，也能跟着看的远一些。
+    <h1 id="进展">进展</h1>
+    <p>创建topic的过程就是向gitee仓库提交新增的markdown文件的过程，因此创建成功后的返回非常重要，包含了文件远程访问的相关信息。上文中的BlogTopic类已经存储了有价值的一些数据。调用的函数如下（api调用文档请看<a href="https://gitee.com/api/v5/swagger#/postV5ReposOwnerRepoContentsPath">官方文档</a>）：</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  public String newFile(String accessToken, String owner, String repo, String path, String fileContent, String message, String branch){
+      String url = String.format(NEW_FILE_URL, owner, repo, path);
+      Request request = new Request(Verb.POST, url);
+      /**
+       * 用户授权码
+       */
+      request.addBodyParameter(OAuthConstants.ACCESS_TOKEN, accessToken);
+      /**
+       * 文件内容, 要用base64编码
+       */
+      request.addBodyParameter(GiteeApiConstant.CONTENT,base64Encode(fileContent));
+      /**
+       * 提交信息
+       */
+      request.addBodyParameter(GiteeApiConstant.MESSAGE,message);
+      /**
+       * 分支名称。默认为项目对默认分支
+       */
+      request.addBodyParameter(GiteeApiConstant.BRANCH, branch);
+      Response response = request.send();
+      return response.getBody();
+  }
+</code></pre></div>    </div>
+    <p>调用成功后生成BlogTopic实例存入库中。“我的”页面里的列表展示没什么可说的，下拉自动刷新用了vue-infinite-scroll这个控件，使用可参考<a href="https://github.com/ElemeFE/vue-infinite-scroll">官方仓库</a>，好用，没啥可说的 <br />
+<img src="https://gitee.com/uploads/images/2017/1220/235721_a3d6196c_58701.png" alt="输入图片说明" title="2.png" />
+目前列表里显示的内容还未完成，仅显示了一个标题和创建日期，副标题和内容都是乱写的（迟些再说，先把topic的提交，更新等流程跑通）。点击链接后跳转到topic内容展示 <br />
+<img src="https://gitee.com/uploads/images/2017/1220/235919_61a91c43_58701.png" alt="输入图片说明" title="3.png" /> <br />
+点击右上角的图标进入操作页（计划把操作入口放在右上角，具体的操作内容会因页面不同而变化） <br />
+<img src="https://gitee.com/uploads/images/2017/1221/000039_31181ada_58701.png" alt="输入图片说明" title="4.png" /></p>
+  </li>
+</ul>
+
+<h1 id="总结">总结</h1>
+<p>大约10天前报名pmp开始，之后我每天晚上要留出1个半小时看书，还要留出45分钟至1个小时练字，所以每天写这个项目的时间也就大约1个小时（算上写博客的时间，也许还不到1个小时）。项目进展速度不得不放慢下来。但是还是坚持着不要停的往前走。慢一点没关系。眼看着项目一点一点的实现我的构想，还是挺开心的。以后下一步目标定的少一点吧，争取每次写博客的时候都能完成。</p>
+<h1 id="下一步目标">下一步目标</h1>
+<ul>
+  <li>主题编辑页面（markdown编辑）</li>
+</ul>
+
+
+                <hr>
+
+                
+
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2017/12/18/ngrok/" data-toggle="tooltip" data-placement="top" title="微信开发利器ngrok">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2017/12/22/gitwriter6/" data-toggle="tooltip" data-placement="top" title="gitwriter项目6">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+
+                
+                <!-- 多说评论框 start -->
+                <div class="comment">
+                    <div class="ds-thread"
+                        data-thread-key="/2017/12/20/gitwriter5"
+                        data-title="gitwriter项目5"
+                        data-url="http://localhost:4000/2017/12/20/gitwriter5/" >
+                    </div>
+                </div>
+                <!-- 多说评论框 end -->
+                
+
+                
+
+            </div>
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+        				
+                            
+                				<a href="/tags/#生活" title="生活" rel="2">
+                                    生活
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#jekyll" title="jekyll" rel="1">
+                                    jekyll
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#IntelliJ" title="IntelliJ" rel="1">
+                                    IntelliJ
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#SpringBoot" title="SpringBoot" rel="2">
+                                    SpringBoot
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#阿里云" title="阿里云" rel="2">
+                                    阿里云
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#钢笔字" title="钢笔字" rel="3">
+                                    钢笔字
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#gitwriter" title="gitwriter" rel="7">
+                                    gitwriter
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#pmp" title="pmp" rel="6">
+                                    pmp
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#web" title="web" rel="1">
+                                    web
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#游记" title="游记" rel="1">
+                                    游记
+                                </a>
+                            
+        				
+        			</div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+                    
+                        <li><a href="https://gitee.com/xknife">大侃</a></li>
+                    
+                        <li><a href="http://cripps.gitee.io/">克瑞普斯豆</a></li>
+                    
+                        <li><a href="#">丙</a></li>
+                    
+                        <li><a href="#">丁</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    // dynamic User by Hux
+    var _user = 'icyhy';
+
+    // duoshuo comment query.
+    var duoshuoQuery = {short_name: _user };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+
+                    <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
+                    
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/icyhy">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="http://weibo.com/1025895004">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/icyhy">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/icyhy">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 天坑 2025
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a>
+                    <br>
+                    <div style="TEXT-ALIGN: center;">
+                        <div style="MARGIN-RIGHT: auto;MARGIN-LEFT: auto;">
+                            <script src='//gitee.com/huangyang/huangyang/star_widget_preview'></script>
+                        </div>
+                    </div>
+                    <br>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-49627206-1';
+    var _gaDomain = 'huangxuan.me';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '4cc1f2d8f3067386cc5cdb626a202900';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

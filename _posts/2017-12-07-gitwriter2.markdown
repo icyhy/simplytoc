@@ -1,0 +1,76 @@
+---
+layout:     post
+title:      "gitwriter项目2"
+subtitle:   " \"登录、注册\""
+date:       2017-12-7 19:53:00
+author:     "huangyang"
+header-img: "img/post-bg-2015.jpg"
+tags:
+    - gitwriter
+---
+# 当前目标
+用户注册登录机制（前端页面和后端实现），在服务器上搭建mongodb数据库。
+
+# 设计思路
+暂时没有考虑引入权限管理，每个用户都是一样的，都能发起一个“主题”，或者参与一个“主题”。登录也暂时不考虑什么手机验证码、邮箱验证，后期可以再补充。毕竟当前最着急还是框架的建立、技术选型、关键技术验证以及基础流程的实现。  
+
+所以登录和注册就仅需要一个用户名和密码就足够了（将来可以考虑登录名换成邮箱或者手机），第三方登录下一步再做。但是后端rest服务的token控制是必不可少的。这里使用jwt（[Json Web Token](https://jwt.io/)），基本思路就是登录验证成功时生成token以及token的过期时间，返回前端，前端接下来的rest请求都将token放到head里。服务端增加一个HandlerInterceptorAdapter,同时增加一个@Login注解，在Interceptor的preHandle方法中，判断凡是打了该注解的控制器方法，都会从请求的head中获取token，判断token是否过期，凡是过期的都抛出异常，返回前端授权失效，需重新登录。
+
+前端需要确定一个UI框架，实现一个非常简单的登录页面即可。
+# 进展
+1、 ** 服务器  **   
+ECS上搭建了mongodb，开通了远程访问，具体参见[阿里云ECS折腾日记2](http://huangyang.gitee.io/2017/12/06/ecs2/)    
+
+2、 ** 服务端 **    
+服务端登录注册实现，分别实现了LoginController，RegisterController，AuthorizationInterceptor，UserService，UserRepository，User等类  
+![输入图片说明](https://gitee.com/uploads/images/2017/1208/231233_8529a668_58701.png "1.png")  
+不具体的列了，代码暂时先放在一个Module中（一般来说，我会在项目开始就按层次分成多个包，这次项目打算先放一个包里，后期根据需要再拆分），基本调用层次就是Controller引用Service，Service引用Repository。Repository层使用SpringData实现，配合mongodb用的很舒服。  
+![输入图片说明](https://gitee.com/uploads/images/2017/1208/231733_b9639f7d_58701.png "1.png")  
+有一点要注意，gradle项目中使用querydsl-mongodb根据@QueryEntity生成代码的时候，需要引入
+```
+annotationProcessor {
+    library "com.querydsl:querydsl-apt:4.0.0"
+    processor "com.querydsl.apt.morphia.MorphiaAnnotationProcessor"
+    sourcesDir "src/main/java"
+}
+```
+在maven项目中需要引入plugin
+```
+<plugin>
+    <groupId>com.mysema.maven</groupId>
+    <artifactId>apt-maven-plugin</artifactId>
+    <version>1.0.8</version>
+    <dependencies>
+        <dependency>
+            <groupId>com.mysema.querydsl</groupId>
+            <artifactId>querydsl-apt</artifactId>
+            <version>${version.querydsl}</version>
+        </dependency>
+    </dependencies>
+    <executions>
+        <execution>
+            <phase>generate-sources</phase>
+\            <goals>
+                 <goal>process</goal>
+            </goals>
+            <configuration>
+                <outputDirectory>target/generated-sources/java</outputDirectory>
+                <processor>com.mysema.query.apt.QuerydslAnnotationProcessor</processor>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>   
+```
+3、 ** 前端 **  
+前端框架选择上花了比较长的时间，刚开始使用[WE-VUE](http://wevue.org/doc/index)，登录页面也做完了，但使用过程还是有点难受，于是换成了[VUX](https://vux.li/#/)，其实这两个框架都符合我的选择，基于WeUI和Vue2.0，使用webpack模板打包，Component都比较齐全，持续更新中。要说差别，也就在官方文档上了，前者列出了所有Component的使用方法，后者主要介绍了框架，配置，工具等。其实Component基本用法看看demo的源码很容易就理解了，反而是框架设计的介绍，我觉得WE-VUE文档说的太少了，让我去细看他的源码，实在没有耐心。仁者见仁智者见智了。
+
+基于VUX的demo代码，改出了一个非常简单的登录页。（VUX的demo也让我很喜欢，几乎就是我需要的前端基本布局了。把我需要东东从VUX的代码中挪到我的项目中。  
+![输入图片说明](https://gitee.com/uploads/images/2017/1208/235716_6af37486_58701.png "1.png")
+
+logo没弄，先用Vue的凑合一下，注册页面也没做好，就不放图了。
+
+# 下一步目标
+- 继续完善登录和注册页面
+- 登录和注册前后端调试。
+- 后端完成BlogTopic模型  
+![输入图片说明](https://gitee.com/uploads/images/2017/1209/000045_a86bb234_58701.png "1.png")

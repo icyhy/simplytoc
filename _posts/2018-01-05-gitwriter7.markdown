@@ -1,0 +1,67 @@
+---
+layout:     post
+title:      "gitwriter项目7"
+subtitle:   " \"图片上传及保存问题解决了\""
+date:       2018-01-05 22:42:00
+author:     "huangyang"
+header-img: "img/post-bg-2015.jpg"
+tags:
+    - gitwriter
+---
+# 前言
+好久没有更新这个项目的文章了，最近事情太多，项目没有太多进展。但有空的时候，多少还是写几行代码，磨蹭了这么多天，总算把图片上传及保存的问题解决了。
+# 当前目标   
+- 主题编辑页面（markdown编辑）
+# 设计思路
+按照[gitwriter项目6](http://huangyang.gitee.io/2017/12/22/gitwriter6/)文中规划的方式，解决文件上传及保存的问题。   
+
+上传部分使用第三方控件，在前端将图片转成base64字符串（控件顺便解决了旋转和图片缩放的问题），貌似现在很多涉及到图片上传的网站都是这么做的。这里使用的是`vue-image-upload-resize`，使用参考[npm](https://www.npmjs.com/package/vue-image-upload-resize) 。   
+```
+<image-uploader
+  :debug="1"
+  :maxWidth="512"
+  :quality="0.7"
+  :autoRotate=true
+  outputFormat="verbose"
+  :preview=false
+  :className="['fileinput', { 'fileinput--loaded' : hasImage }]"
+  @input="setImage"
+  @onUpload="startImageResize"
+  @onComplete="endImageResize"
+></image-uploader>
+```  
+在setImage方法中，保存得到的图片数据，随后点击上传时，提交数据。
+```
+/**
+ * 图片选择完成
+ * @param file
+ */
+setImage: function (file) {
+  this.hasImage = true
+  this.image = file
+}
+```
+上传后，后端控制器这一层得到的就是图片对应的base64字符串，直接调用gitee的openAPI，创建新文件到仓库预定义路径下。然后将pages服务对应的该文件最终路径返回前端，插入markdown文本中（以图片链接的形式）。   
+
+最后提交主题的操作就是gitee更新文件的操作。gitee相关操作参考官方openAPI文档即可。
+
+# 进展
+图片上传如下图，点击左上图片后弹出对话框，选择文件后点击插入。   
+![输入图片说明](https://gitee.com/uploads/images/2018/0106/230535_29145214_58701.png "2.png")   
+生成图片链接，append到当前的markdown文本中。其他的markdown快捷操作都是类似操作，生成对应的字符，append到文本中，暂时不打算继续做这一部分了。还是先把主要流程完成。   
+![输入图片说明](https://gitee.com/uploads/images/2018/0106/230743_4cc16a47_58701.png "2.png")   
+提交后等几秒后，点击进入文章方可看到图片。整个过程有一点缓慢，体验不太好。因为gitee的pages服务重新生成新页面需要时间，另外图片上传操作设计到仓库文件的创建，速度也略慢。好吧，先忍了。   
+![输入图片说明](https://gitee.com/uploads/images/2018/0106/231419_26eb018d_58701.png "2.png")   
+经测试，手机浏览器上传图片也是可以的。   
+这里遇到一个小问题，就是本地文章刷新的问题，因为本地文章是加载到iframe中的，所以被缓存到本地了，每次加载都是从缓存中拿数据。因此使用了一个小技巧。
+```
+var randomnumber=Math.floor(Math.random()*100000);
+this.topicUri = url + '?randomnumber=' + randomnumber;
+```
+就是在加载到iframe中的文章地址链接后面附了一个随机数做参数，使得每次的地址都不通，这样就防止从缓存中拿页面。   
+# 总结
+markdown编辑核心的问题算是解决了，细节还有很多需要完善的地方，如预览，markdown编辑工具栏等。此外，在手机上编辑markdown文本貌似依然不是很舒服。毕竟是手机嘛。下一步，带算先把微信提交图片文字，更新主题文章这一步做通。到时候，出门用微信拍照，自动上传到对应的topic中，比我将照片从手机中导到电脑上，然后一张一张编辑到markdown文章里要方便些。到这一步，才总算有了一点实用价值，我自己也可以先试着用用。
+# 下一步目标
+- 微信用户和gitwriter账户绑定
+
+

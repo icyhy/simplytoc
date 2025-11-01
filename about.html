@@ -1,189 +1,127 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>关于我 - Simply TOC</title>
-    <meta name="description" content="了解更多关于我的背景、技能和经历">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- 导航栏 -->
-    <header class="header">
-        <nav class="nav">
-            <div class="nav-container">
-                <a href="index.html" class="nav-logo">Simply TOC</a>
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link">首页</a></li>
-                    <li><a href="about.html" class="nav-link active">关于我</a></li>
-                    <li><a href="projects.html" class="nav-link">项目</a></li>
-                    <li><a href="blog.html" class="nav-link">博客</a></li>
-                    <li><a href="contact.html" class="nav-link">联系</a></li>
-                </ul>
-                <div class="nav-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </nav>
-    </header>
+---
+layout: page
+title: "About"
+description: "Hey, this is Hux."
+header-img: "img/about-bg.jpg"
+---
 
-    <main>
-        <!-- 个人简介区域 -->
-        <section class="hero hero-small">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="profile-card">
-                        <div class="profile-avatar">
-                            <img src="assets/images/avatar.jpg" alt="个人头像" class="avatar">
-                        </div>
-                        <div class="profile-info">
-                            <h1 class="profile-name">张三</h1>
-                            <p class="profile-title">全栈开发工程师</p>
-                            <p class="profile-bio">热爱编程，专注于 Web 开发和用户体验设计。致力于创造优雅、高效的代码解决方案。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- Language Selector -->
+<select onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
+    <option value="0" selected> 中文 Chinese </option>
+    <option value="1"> 英语 English </option>
+</select>
 
-        <!-- 技能标签云 -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title">技能专长</h2>
-                <div class="skills-cloud">
-                    <div class="skill-category">
-                        <h3>前端技术</h3>
-                        <div class="skills-tags">
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">TypeScript</span>
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">Vue.js</span>
-                            <span class="skill-tag">HTML5</span>
-                            <span class="skill-tag">CSS3</span>
-                            <span class="skill-tag">Sass</span>
-                            <span class="skill-tag">Webpack</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3>后端技术</h3>
-                        <div class="skills-tags">
-                            <span class="skill-tag">Node.js</span>
-                            <span class="skill-tag">Express</span>
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Django</span>
-                            <span class="skill-tag">PostgreSQL</span>
-                            <span class="skill-tag">MongoDB</span>
-                            <span class="skill-tag">Redis</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3>工具与其他</h3>
-                        <div class="skills-tags">
-                            <span class="skill-tag">Git</span>
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">AWS</span>
-                            <span class="skill-tag">CI/CD</span>
-                            <span class="skill-tag">Linux</span>
-                            <span class="skill-tag">Figma</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- Chinese Version -->
+<div class="zh post-container">
+    <blockquote>
+        写写代码，做做设计，看看产品。
+        世界那么大，多玩玩看看。
+    </blockquote>
+    9月21日上午，阳光明媚，鲜花斗艳。帕洛阿尔托苹果店里欢声笑语，人头攒动。苹果公司首席执行官蒂姆·库克先生在店长欧阳猛南陪同下，不远千米，深入到一线店面，为那里的员工带去节曰的问候和良好的祝愿。<br><br>“果粉们，你们辛苦了，我代表某果公司，祝你们身体健康，生活幸福，工作成功！”库克亲切慰问广大员工和顾客，并就iOS7、iPhone 5S和iPhone 5C的销售状况进行调研。 <br><br>“您现在每月工资有多少？肾5S拿到了吗？”在店里，库克关切地向果粉们问起这一问题。当听说果粉们排到了5S，库克满意地连连点头。接着他指出，近年来苹果事业发展取得巨大成就，特别是iPhone影响剧增，老百姓对iOS满意度逐步提高，在这个转变过程中，果粉的辛勤工作功不可没。<br><br>库克看到一个中国小朋友在排队买iPhone 5S，亲切的问：“5288元一台能承受不？”小朋友回答到：“能！”当得知这位小朋友卖了一个肾来买iPhone 5S时，库克叮嘱道：“在支持苹果的同时，也要爱护身体。”<br><br>库克与购买苹果手机的果粉们兴致勃勃地参观了苹果专卖店，和员工们拉了拉家常，并饶有兴趣地玩了四盘切西瓜游戏，与普通员工同乐。<br><br>在交谈中，库克多次关心地强调：“有了iPhone 5C，就不卖iPhone 5了。”并对顾客说：“好好休息，身体是革命的本钱嘛！”会谈始终在亲切友好的气氛中进行。<br><br>顾客们就库克的讲话达成了广泛的共识，并承认世界上只有iOS最流畅，要紧紧的团结在以库克先生为首席执行官的苹果公司集体周围，一心一意抓学习，聚精会神谋发展。<br>
+    <br>帕洛阿尔托苹果专卖店当日原则通过《蒂姆·库克首席执行官在加州新苹果店的讲话纪要》，并下发各分店认真学习、研讨。
 
-        <!-- 工作经历 -->
-        <section class="section section-alt">
-            <div class="container">
-                <h2 class="section-title">工作经历</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">2022 - 现在</div>
-                        <div class="timeline-content">
-                            <h3>高级前端工程师</h3>
-                            <p class="timeline-company">科技创新有限公司</p>
-                            <p>负责公司核心产品的前端架构设计和开发，带领团队完成多个重要项目的交付。</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">2020 - 2022</div>
-                        <div class="timeline-content">
-                            <h3>全栈开发工程师</h3>
-                            <p class="timeline-company">互联网创业公司</p>
-                            <p>参与产品从 0 到 1 的开发过程，负责前后端技术选型和实现。</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">2018 - 2020</div>
-                        <div class="timeline-content">
-                            <h3>前端开发实习生</h3>
-                            <p class="timeline-company">软件开发公司</p>
-                            <p>协助团队完成多个客户项目的前端开发工作，学习现代前端开发技术栈。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <p style="text-align:right;">
+        —— <a href="http://www.zhihu.com/question/19687065">李书航 － 什么是「共产中文腔调」？ </a>
+    </p>
 
-        <!-- 教育背景 -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title">教育背景</h2>
-                <div class="education-list">
-                    <div class="education-item">
-                        <h3>计算机科学与技术 学士学位</h3>
-                        <p class="education-school">某某大学</p>
-                        <p class="education-date">2014 - 2018</p>
-                        <p>主修课程：数据结构、算法设计、Web 开发、数据库系统、软件工程</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+</div>
 
-        <!-- 个人成就 -->
-        <section class="section section-alt">
-            <div class="container">
-                <h2 class="section-title">个人成就</h2>
-                <div class="achievements-grid">
-                    <div class="achievement-card">
-                        <div class="achievement-icon">🏆</div>
-                        <h3>开源贡献者</h3>
-                        <p>活跃于多个开源项目，累计提交超过 1000 次代码贡献</p>
-                    </div>
-                    <div class="achievement-card">
-                        <div class="achievement-icon">📝</div>
-                        <h3>技术博主</h3>
-                        <p>在各大技术平台发表文章 50+ 篇，累计阅读量 100万+</p>
-                    </div>
-                    <div class="achievement-card">
-                        <div class="achievement-icon">🎤</div>
-                        <h3>技术分享</h3>
-                        <p>在多个技术会议和meetup中进行技术分享</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+<!-- English Version -->
+<div class="en post-container">
+    <blockquote>
+        Designer or Engineer, things in between.
+    </blockquote>
 
-    <!-- 页脚 -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 Simply TOC. Built with passion and code.</p>
-                <div class="social-links">
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-link">GitHub</a>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn</a>
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link">Twitter</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <p>
+        Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. And the only way to do great work is to love what you do. If you haven’t found it yet, keep looking. Don’t settle. As with all matters of the heart, you’ll know when you find it.
+    </p>
 
-    <script src="js/main.js"></script>
-</body>
-</html>
+    <p>
+    If you want to live your life in a creative way, as an artist, you have to not look back too much. You have to be willing to take whatever you’ve done and whoever you were and throw them away.
+    </p>
+
+    <p style="text-align:right;">
+    -- Steve Jobs
+    </p>
+
+</div>
+
+<!-- Handle Language Change -->
+<script type="text/javascript">
+    var $zh = document.querySelector(".zh");
+    var $en = document.querySelector(".en");
+    function onLanChange(index){
+        if(index == 0){
+            $zh.style.display = "block";
+            $en.style.display = "none";
+        }else{
+            $en.style.display = "block";
+            $zh.style.display = "none";
+        }
+    }
+    onLanChange(0);
+</script>
+
+
+
+{% if site.duoshuo_username %}
+<!-- 多说评论框 start -->
+<div class="comment">
+    <div class="ds-thread"
+    {% if site.duoshuo_username == "huxblog" %}
+        data-thread-id="1187623191091085319"
+    {% else %}
+        data-thread-key="{{site.duoshuo_username}}/about"
+    {% endif %}
+
+    data-title="{{page.title}}"
+    data-url="{{site.url}}/about/"></div>
+</div>
+<!-- 多说评论框 end -->
+
+<!-- Duoshuo hacking -->
+<input id="dsUser" type="hidden" value="{{site.duoshuo_username}}"  />
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    // dynamic User hacking by Hux
+    var _user = document.getElementById('dsUser').value;
+    // duoshuo comment query.
+    var duoshuoQuery = {short_name: _user };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+{% endif %}
+
+
+{% if site.disqus_username %}
+<!-- disqus 评论框 start -->
+<div class="comment">
+    <div id="disqus_thread" class="disqus-thread">
+
+    </div>
+</div>
+<!-- disqus 评论框 end -->
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "{{site.disqus_username}}";
+    var disqus_identifier = "{{site.disqus_username}}/{{page.url}}";
+    var disqus_url = "{{site.url}}{{page.url}}";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+{% endif %}

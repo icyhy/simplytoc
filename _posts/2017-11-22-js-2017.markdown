@@ -1,0 +1,23 @@
+---
+layout:     post
+title:      "js version设置"
+subtitle:   " \"Import declarations are not supported\""
+date:       2017-11-22 15:37:00
+author:     "huangyang"
+header-img: "img/post-bg-2015.jpg"
+tags:
+    - IntelliJ
+---
+
+## 问题描述
+用IntelliJ打开一个Node项目（使用了Vue2.0），提示
+``` Import declarations are not supported by current JavaScript version ```
+。不影响编译使用，但满地的红线看着难受。
+
+![输入图片说明](https://gitee.com/uploads/images/2017/1123/142028_dc8b814b_58701.png "1.png")
+
+## 解决办法
+prefrences-->Languages & Frameworks -->JavaScript--->React JSX，
+![输入图片说明](https://gitee.com/uploads/images/2017/1123/142313_aa85b761_58701.png "1.png")
+
+webstorm同理。

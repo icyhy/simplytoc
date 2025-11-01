@@ -1,0 +1,69 @@
+---
+layout:     post
+title:      "阿里云ECS折腾日记2"
+subtitle:   " \"安装配置mongodb\""
+date:       2017-12-06 14:36:00
+author:     "huangyang"
+header-img: "img/post-bg-2015.jpg"
+tags:
+    - 阿里云
+---
+# 目标
+- 安装mongodb到ecs（32位ubuntu16.04）
+- 配置端口27117
+- 配置远程访问
+- 创建库，增加用户名密码
+
+# 经过
+-  **安装**     
+我申请的ecs是32位ubuntu16.04（最便宜的，镜像没得选），去mongodb官网[下载页面](https://www.mongodb.com/download-center?jmp=nav#community)，发现最新版支持ubuntu16.04的都是64位。
+![输入图片说明](https://gitee.com/uploads/images/2017/1206/144442_9e74b6f7_58701.png "1.png")
+好吧，懒得去别处下载了， 直接apt-get吧，于是xshell远程连接到ecs，输入`apt-get install mongo`，一阵眼花了我乱的日志后，显示安装成功。
+
+装到哪里去了？别着急，输入`find / -name mongod`，找到mongod在`/usr/bin/mongod`，输入`mongo`显示连接成功，默认连接到test库，27017端口
+
+- **配置远程访问及端口**  
+输入`find / -name mongodb.conf`，找到mongod在`/etc/init/mongodb.conf`和`/etc/mongodb.conf`，两个目录，是后者。于是`nano /etc/mongodb.conf`打开配置文件修改。  
+![输入图片说明](https://gitee.com/uploads/images/2017/1206/150007_a9a3fa2c_58701.png "1.png")  
+将bind_ip项注释则开放远程访问，port项修改默认端口为27117（为啥改成这个，没有为啥，不喜欢用默认的）
+保存，杀掉mongo，输入`pkill mongo`（是不是有点暴力了）。再启动，输入`mongod -f /etc/mongodb.conf -fork`，显示`child process started successfully, parent exiting`，启动后台成功，输入`mongo -port 27117`显示连接成功。不要忘记命令最后的-fork，否则随着终端关闭，mongodb也自动关闭。
+
+- **创建库，增加账户**  
+在shell中连接上mongodb后，输入
+```
+use blog
+db.createUser({
+     user:'testuser',
+     pwd:'test123',
+     roles:[{role:'dbOwner',db:'blog'}]
+})
+```
+则创建了库blog，创建了库用户testuser，密码test123。使用mongodb工具试试吧，我使用的是Robomongo，配置了ip和账户，  
+
+![输入图片说明](https://gitee.com/uploads/images/2017/1206/152442_84f2e1a9_58701.png "1.png")  
+![输入图片说明](https://gitee.com/uploads/images/2017/1206/152600_d673e3a3_58701.png "1.png")
+
+Test测试连接，失败了！，修改Auth Mechanism选项为![输入图片说明](https://gitee.com/uploads/images/2017/1206/152709_b715977b_58701.png "1.png")，终于成功了。
+
+上网查了一下，MongoDB3.x开始，默认的授权机制为SCRAM-SHA-1，比过去的MONGODB-CR的方式更安全。  但这又带来一个新的问题，springboot项目中使用的mongodb的driver还是基于mongodb2.6，老的授权方式，项目中如果远程连接mongodb库也会存在授权问题。又查了一下，参考[网文](http://blog.csdn.net/kabuluode/article/details/48139045)，给出了解决办法，网上还有springboot修改代码的解决办法。前者是修改mongdob的授权方式，回到老的方式，不太推荐，不过操作很容易。springboot改代码使得代码可以使用新的授权方式，不过比较麻烦。
+
+这里简述一下修改mongodb授权方式的做法：  
+```
+use blog
+db.dropUser('testuser')
+```
+删除了之前创建的用户
+```
+use admin
+db.system.version.update({'_id':'authSchema'},{$set:{'currentVersion':3}})
+db.system.version.find()
+```
+输出`{ “_id” : “authSchema”, “currentVersion” : 3 }`，在mongo里修改system.version文档里面的authSchema版本为3（旧版本）。  
+最后按照之前的步骤重新创建账户即可。
+
+最后，现在mongodb虽然安装成功并能远程访问了，但还无法以服务的方式启动，输入 `service mongod start`启动失败，还需要配置相关脚本。这个下次折腾ecs的时候再补上吧。
+
+
+
+
+

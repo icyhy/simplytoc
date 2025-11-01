@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="一路蹒跚前行">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Tags - icyhy | pages</title>
+
+    <link rel="canonical" href="http://localhost:4000/tags/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">天坑</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/">Tags</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/README.zh/">一个程序员的个人博客</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Page Header -->
+<header class="intro-header" style="background-image: url('/img/tag-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading" id="tag-heading">
+                    <h1>Tags</h1>
+                    <span class="subheading">keep hungry keep foolish</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+	<div class="row">
+		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <!-- 标签云 -->
+			<div id='tag_cloud' class="tags">
+				
+				<a href="#生活" title="生活" rel="2">生活</a>
+				
+				<a href="#jekyll" title="jekyll" rel="1">jekyll</a>
+				
+				<a href="#IntelliJ" title="IntelliJ" rel="1">IntelliJ</a>
+				
+				<a href="#SpringBoot" title="SpringBoot" rel="2">SpringBoot</a>
+				
+				<a href="#阿里云" title="阿里云" rel="2">阿里云</a>
+				
+				<a href="#钢笔字" title="钢笔字" rel="3">钢笔字</a>
+				
+				<a href="#gitwriter" title="gitwriter" rel="7">gitwriter</a>
+				
+				<a href="#pmp" title="pmp" rel="6">pmp</a>
+				
+				<a href="#web" title="web" rel="1">web</a>
+				
+				<a href="#游记" title="游记" rel="1">游记</a>
+				
+			</div>
+
+            <!-- 标签列表 -->
+			
+			<div class="one-tag-list">
+			  	<span class="fa fa-tag listing-seperator" id="生活">
+                    <span class="tag-text">生活</span>
+                </span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2017-11-24">2017-11-24</time>
+				  <a href="/2017/11/24/remember/" title="为了忘却的纪念">为了忘却的纪念</a>
+				  </li> -->
+				 <div class="post-preview">
+				    <a href="/2017/11/24/remember/">
+				        <h2 class="post-title">
+                            为了忘却的纪念
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				             "为同事离职有感而发"
+				        </h3>
+				        
+				    </a>
+				    <!-- <p class="post-meta">2017-11-24</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2017-11-18">2017-11-18</time>
+				  <a href="/2017/11/18/hello-2017/" title="Welcome to 天坑' Blog">Welcome to 天坑' Blog</a>
+				  </li> -->
+				 <div class="post-preview">
+				    <a href="/2017/11/18/hello-2017/">
+				        <h2 class="post-title">
+                            Welcome to 天坑' Blog
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				             "Hello World, Hello Blog"
+				        </h3>
+				        
+				    </a>
+				    <!-- <p class="post-meta">2017-11-18</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+			  	<span class="fa fa-tag listing-seperator" id="jekyll">
+                    <span class="tag-text">jekyll</span>
+                </span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2017-11-20">2017-11-20</time>
+				  <a href="/2017/11/20/blog-2017/" title="Blog诞生记">Blog诞生记</a>
+				  </li> -->
+				 <div class="post-preview">
+				    <a href="/2017/11/20/blog-2017/">
+				        <h2 class="post-title">
+                            Blog诞生记
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				             "简单记录一下搭建blog的小白路程"
+				        </h3>
+				        
+				    </a>
+				    <!-- <p class="post-meta">2017-11-20</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+			  	<span class="fa fa-tag listing-seperator" id="IntelliJ">
+                    <span class="tag-text">IntelliJ</span>
+                </span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2017-11-22">2017-11-22</time>
+				  <a href="/2017/11/22/js-2017/" title="js version设置">js version设置</a>
+				  </li> -->
+				 <div class="post-preview">
+				    <a href="/2017/11/22/js-2017/">
+				        <h2 class="post-title">
+                            js version设置
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				             "Import declarations are not supported"
+				        </h3>
+				        
+				    </a>
+				    <!-- <p class="post-meta">2017-11-22</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+			  	<span class="fa fa-tag listing-seperator" id="SpringBoot">
+                    <span class="tag-text">SpringBoot</span>
+                </span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2017-12-04">2017-12-04</time>
+				  <a href="/2017/12/04/vue-springboot/" title="SpringBoot整合Vue脚手架项目（续）">SpringBoot整合Vue脚手架项目（续）</a>
+				  </li> -->
+				 <div class="post-preview">
+				    <a href="/2017/12/04/vue-springboot/">
+				        <h2 class="post-title">
+                            SpringBoot整合Vue脚手架项目（续）
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				             "使用Gradle整合SpringBoot+Vue.js的一个模板项目"
+				        </h3>
+				        
+				    </a>
+				    <!-- <p class="post-meta">2017-12-04</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2017-11-26">2017-11-26</time>
+				  <a href="/2017/11/26/vue-springboot/" title="SpringBoot整合Vue脚手架项目">SpringBoot整合Vue脚手架项目</a>
+				  </li> -->
+				 <div class="post-preview">
+				    <a href="/2017/11/26/vue-springboot/">
+				        <h2 class="post-title">
+                            SpringBoot整合Vue脚手架项目
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				             "使用Gradle整合SpringBoot+Vue.js的一个模板项目"
+				        </h3>
+				        
+				    </a>
+				    <!-- <p class="post-meta">2017-11-26</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+			  	<span class="fa fa-tag listing-seperator" id="阿里云">
+                    <span class="tag-text">阿里云</span>
+                </span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2017-12-06">2017-12-06</time>
+				  <a href="/2017/12/06/ecs2/" title="阿里云ECS折腾日记2">阿里云ECS折腾日记2</a>
+				  </li> -->
+				 <div class="post-preview">
+				    <a href="/2017/12/06/ecs2/">
+				        <h2 class="post-title">
+                            阿里云ECS折腾日记2
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				             "安装配置mongodb"
+				        </h3>
+				        
+				    </a>
+				    <!-- <p class="post-meta">2017-12-06</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2017-11-28">2017-11-28</time>
+				  <a href="/2017/11/28/ecs1/" title="阿里云ECS折腾日记1">阿里云ECS折腾日记1</a>
+				  </li> -->
+				 <div class="post-preview">
+				    <a href="/2017/11/28/ecs1/">
+				        <h2 class="post-title">
+                            阿里云ECS折腾日记1
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				             "购买ECS、绑定域名、安装vsftp、jdk"
+				        </h3>
+				        
+				    </a>
+				    <!-- <p class="post-meta">2017-11-28</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+			  	<span class="fa fa-tag listing-seperator" id="钢笔字">
+                    <span class="tag-text">钢笔字</span>
+                </span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2018-01-02">2018-01-02</time>
+				  <a href="/2018/01/02/writing3/" title="练字日记3">练字日记3</a>
+				  </li> -->
+				 <div class="post-preview">
+				    <a href="/2018/01/02/writing3/">
+				        <h2 class="post-title">
+                            练字日记3
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				             "这篇真是写给自己看的呀~"
+				        </h3>
+				        
+				    </a>
+				    <!-- <p class="post-meta">2018-01-02</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2017-12-12">2017-12-12</time>
+				  <a href="/2017/12/12/writing2/" title="练字日记2">练字日记2</a>
+				  </li> -->
+				 <div class="post-preview">
+				    <a href="/2017/12/12/writing2/">
+				        <h2 class="post-title">
+                            练字日记2
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				             "这篇真是写给自己看的呀~"
+				        </h3>
+				        
+				    </a>
+				    <!-- <p class="post-meta">2017-12-12</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2017-11-30">2017-11-30</time>
+				  <a href="/2017/11/30/writing/" title="练字日记1">练字日记1</a>
+				  </li> -->
+				 <div class="post-preview">
+				    <a href="/2017/11/30/writing/">
+				        <h2 class="post-title">
+                            练字日记1
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				             "这篇真是写给自己看的呀~"
+				        </h3>
+				        
+				    </a>
+				    <!-- <p class="post-meta">2017-11-30</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+			  	<span class="fa fa-tag listing-seperator" id="gitwriter">
+                    <span class="tag-text">gitwriter</span>
+                </span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2018-01-06">2018-01-06</time>
+				  <a href="/2018/01/06/gitwriter7/" title="gitwriter项目7">gitwriter项目7</a>
+				  </li> -->
+				 <div class="post-preview">
+				    <a href="/2018/01/06/gitwriter7/">
+				        <h2 class="post-title">
+                            gitwriter项目7
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				             "图片上传及保存问题解决了"
+				        </h3>
+				        
+				    </a>
+				    <!-- <p class="post-meta">2018-01-06</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2017-12-22">2017-12-22</time>
+				  <a href="/2017/12/22/gitwriter6/" title="gitwriter项目6">gitwriter项目6</a>
+				  </li> -->
+				 <div class="post-preview">
+				    <a href="/2017/12/22/gitwriter6/">
+				        <h2 class="post-title">
+                            gitwriter项目6
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				             "图片保存在哪里的问题"
+				        </h3>
+				        
+				    </a>
+				    <!-- <p class="post-meta">2017-12-22</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2017-12-20">2017-12-20</time>
+				  <a href="/2017/12/20/gitwriter5/" title="gitwriter项目5">gitwriter项目5</a>
+				  </li> -->
+				 <div class="post-preview">
+				    <a href="/2017/12/20/gitwriter5/">
+				        <h2 class="post-title">
+                            gitwriter项目5
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				             "gitee授权"
+				        </h3>
+				        
+				    </a>
+				    <!-- <p class="post-meta">2017-12-20</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2017-12-14">2017-12-14</time>
+				  <a href="/2017/12/14/gitwriter4/" title="gitwriter项目4">gitwriter项目4</a>
+				  </li> -->
+				 <div class="post-preview">
+				    <a href="/2017/12/14/gitwriter4/">
+				        <h2 class="post-title">
+                            gitwriter项目4
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				             "gitee授权"
+				        </h3>
+				        
+				    </a>
+				    <!-- <p class="post-meta">2017-12-14</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2017-12-10">2017-12-10</time>
+				  <a href="/2017/12/10/gitwriter3/" title="gitwriter项目3">gitwriter项目3</a>
+				  </li> -->
+				 <div class="post-preview">
+				    <a href="/2017/12/10/gitwriter3/">
+				        <h2 class="post-title">
+                            gitwriter项目3
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				             "token控制、注销、菜单规划"
+				        </h3>
+				        
+				    </a>
+				    <!-- <p class="post-meta">2017-12-10</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2017-12-08">2017-12-08</time>
+				  <a href="/2017/12/08/gitwriter2/" title="gitwriter项目2">gitwriter项目2</a>
+				  </li> -->
+				 <div class="post-preview">
+				    <a href="/2017/12/08/gitwriter2/">
+				        <h2 class="post-title">
+                            gitwriter项目2
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				             "登录、注册"
+				        </h3>
+				        
+				    </a>
+				    <!-- <p class="post-meta">2017-12-08</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2017-12-02">2017-12-02</time>
+				  <a href="/2017/12/02/gitwriter1/" title="gitwriter项目1">gitwriter项目1</a>
+				  </li> -->
+				 <div class="post-preview">
+				    <a href="/2017/12/02/gitwriter1/">
+				        <h2 class="post-title">
+                            gitwriter项目1
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				             "一个出于兴趣而诞生的小项目"
+				        </h3>
+				        
+				    </a>
+				    <!-- <p class="post-meta">2017-12-02</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+			  	<span class="fa fa-tag listing-seperator" id="pmp">
+                    <span class="tag-text">pmp</span>
+                </span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2018-01-08">2018-01-08</time>
+				  <a href="/2018/01/08/pmp6/" title="PMP考试准备6">PMP考试准备6</a>
+				  </li> -->
+				 <div class="post-preview">
+				    <a href="/2018/01/08/pmp6/">
+				        <h2 class="post-title">
+                            PMP考试准备6
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				             "项目成本管理知识领域总结（第七章）"
+				        </h3>
+				        
+				    </a>
+				    <!-- <p class="post-meta">2018-01-08</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2018-01-04">2018-01-04</time>
+				  <a href="/2018/01/04/pmp5/" title="PMP考试准备5">PMP考试准备5</a>
+				  </li> -->
+				 <div class="post-preview">
+				    <a href="/2018/01/04/pmp5/">
+				        <h2 class="post-title">
+                            PMP考试准备5
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				             "项目时间管理知识领域总结（第六章）"
+				        </h3>
+				        
+				    </a>
+				    <!-- <p class="post-meta">2018-01-04</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2017-12-28">2017-12-28</time>
+				  <a href="/2017/12/28/pmp4/" title="PMP考试准备4">PMP考试准备4</a>
+				  </li> -->
+				 <div class="post-preview">
+				    <a href="/2017/12/28/pmp4/">
+				        <h2 class="post-title">
+                            PMP考试准备4
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				             "项目范围管理知识领域总结（第五章）"
+				        </h3>
+				        
+				    </a>
+				    <!-- <p class="post-meta">2017-12-28</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2017-12-26">2017-12-26</time>
+				  <a href="/2017/12/26/pmp3/" title="PMP考试准备3">PMP考试准备3</a>
+				  </li> -->
+				 <div class="post-preview">
+				    <a href="/2017/12/26/pmp3/">
+				        <h2 class="post-title">
+                            PMP考试准备3
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				             "项目整合管理知识领域总结（第四章）"
+				        </h3>
+				        
+				    </a>
+				    <!-- <p class="post-meta">2017-12-26</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2017-12-24">2017-12-24</time>
+				  <a href="/2017/12/24/pmp2/" title="PMP考试准备2">PMP考试准备2</a>
+				  </li> -->
+				 <div class="post-preview">
+				    <a href="/2017/12/24/pmp2/">
+				        <h2 class="post-title">
+                            PMP考试准备2
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				             "培训结束"
+				        </h3>
+				        
+				    </a>
+				    <!-- <p class="post-meta">2017-12-24</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2017-12-16">2017-12-16</time>
+				  <a href="/2017/12/16/pmp1/" title="PMP考试准备1">PMP考试准备1</a>
+				  </li> -->
+				 <div class="post-preview">
+				    <a href="/2017/12/16/pmp1/">
+				        <h2 class="post-title">
+                            PMP考试准备1
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				             "勇敢地进坑了"
+				        </h3>
+				        
+				    </a>
+				    <!-- <p class="post-meta">2017-12-16</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+			  	<span class="fa fa-tag listing-seperator" id="web">
+                    <span class="tag-text">web</span>
+                </span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2017-12-18">2017-12-18</time>
+				  <a href="/2017/12/18/ngrok/" title="微信开发利器ngrok">微信开发利器ngrok</a>
+				  </li> -->
+				 <div class="post-preview">
+				    <a href="/2017/12/18/ngrok/">
+				        <h2 class="post-title">
+                            微信开发利器ngrok
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				             "将本地的web暴露在公网上，用于回调调试"
+				        </h3>
+				        
+				    </a>
+				    <!-- <p class="post-meta">2017-12-18</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+			  	<span class="fa fa-tag listing-seperator" id="游记">
+                    <span class="tag-text">游记</span>
+                </span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2018-01-01">2018-01-01</time>
+				  <a href="/2018/01/01/yuandanchongli/" title="元旦崇礼游记">元旦崇礼游记</a>
+				  </li> -->
+				 <div class="post-preview">
+				    <a href="/2018/01/01/yuandanchongli/">
+				        <h2 class="post-title">
+                            元旦崇礼游记
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				             "独乐乐不如众乐乐"
+				        </h3>
+				        
+				    </a>
+				    <!-- <p class="post-meta">2018-01-01</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+
+		</div>
+	</div>
+</div>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+
+                    <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
+                    
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/icyhy">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="http://weibo.com/1025895004">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/icyhy">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/icyhy">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 天坑 2025
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a>
+                    <br>
+                    <div style="TEXT-ALIGN: center;">
+                        <div style="MARGIN-RIGHT: auto;MARGIN-LEFT: auto;">
+                            <script src='//gitee.com/huangyang/huangyang/star_widget_preview'></script>
+                        </div>
+                    </div>
+                    <br>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-49627206-1';
+    var _gaDomain = 'huangxuan.me';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '4cc1f2d8f3067386cc5cdb626a202900';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="一路蹒跚前行">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>icyhy | pages</title>
+
+    <link rel="canonical" href="http://localhost:4000/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">天坑</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/">Tags</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/README.zh/">一个程序员的个人博客</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Page Header -->
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>天坑</h1>
+                    <!--<hr class="small">-->
+                    <span class="subheading">一路蹒跚前行</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+	<div class="row">
+        
+
+<!-- USE SIDEBAR -->
+    <!-- Post Container -->
+    		<div class="
+                col-lg-8 col-lg-offset-1
+                col-md-8 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container
+            ">
+    			
+<div class="post-preview">
+    <a href="/2018/01/08/pmp6/">
+        <h2 class="post-title">
+            PMP考试准备6
+        </h2>
+        
+        <h3 class="post-subtitle">
+             "项目成本管理知识领域总结（第七章）"
+        </h3>
+        
+        <div class="post-content-preview">
+            ppt
+
+分析
+
+  规划成本管理输出的成本管理计划是剩下两个规划过程（估算成本和制定预算的输入），制定预算输出的成本基准是制定项目管理计划的输入。
+  项目管理计划是23个过程的输入，其中包括了11个监控过程组的过程（所有监控过程），9个规划过程组的规划xx管理过程（除了制定项目管理计划外其他9个知识领域规划过程组的的第一个过程），1个执行过程组的指导与管理项目工作，2个收尾过程组的结束项...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by huangyang on January 8, 2018
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2018/01/06/gitwriter7/">
+        <h2 class="post-title">
+            gitwriter项目7
+        </h2>
+        
+        <h3 class="post-subtitle">
+             "图片上传及保存问题解决了"
+        </h3>
+        
+        <div class="post-content-preview">
+            前言
+好久没有更新这个项目的文章了，最近事情太多，项目没有太多进展。但有空的时候，多少还是写几行代码，磨蹭了这么多天，总算把图片上传及保存的问题解决了。
+当前目标
+
+  主题编辑页面（markdown编辑）
+    设计思路
+    按照gitwriter项目6文中规划的方式，解决文件上传及保存的问题。
+  
+
+
+上传部分使用第三方控件，在前端将图片转成base64字符串（控件顺便解决了旋转...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by huangyang on January 6, 2018
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2018/01/04/pmp5/">
+        <h2 class="post-title">
+            PMP考试准备5
+        </h2>
+        
+        <h3 class="post-subtitle">
+             "项目时间管理知识领域总结（第六章）"
+        </h3>
+        
+        <div class="post-content-preview">
+            ppt
+
+分析
+
+  规划进度管理过程输出的进度管理计划是规划过程组剩下5个过程的输入
+  定义活动的输入包括了范围基准，这是创建WBS过程输出的，因此定义活动过程实在项目范围管理的规划过程完成后才进行的
+  定义活动过程输入的活动清单和活动属性是规划过程组剩下的4个过程的输入
+  制定进度计划过程输出了进度基准
+
+
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by huangyang on January 4, 2018
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2018/01/02/writing3/">
+        <h2 class="post-title">
+            练字日记3
+        </h2>
+        
+        <h3 class="post-subtitle">
+             "这篇真是写给自己看的呀~"
+        </h3>
+        
+        <div class="post-content-preview">
+            体会
+终于平时写字有点变化了，一直以来都是练字时一笔一划写的貌似整齐一点，但平时书写，速度快的时候和过去没两样。最近准备PMP，听课时记笔记，写了大量的字，估计这几年写的字都没那几天上课时候多，于是练字时一些连笔的技法和字的结构被多次使用后，可以熟练运用到平时了，导致日常快速书写的字体和过去相比有了一定的改进。虽然依然不能见人，但起码算是一点进步吧，离我的目标近了一点点。自我表扬一下吧。
+
+...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by huangyang on January 2, 2018
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2018/01/01/yuandanchongli/">
+        <h2 class="post-title">
+            元旦崇礼游记
+        </h2>
+        
+        <h3 class="post-subtitle">
+             "独乐乐不如众乐乐"
+        </h3>
+        
+        <div class="post-content-preview">
+            规划
+18年的元旦放假3天，从12月30日到1月1日。我们家和朋友一家一共6人（4大人2小孩）规划从北京出发自驾崇礼滑雪。
+图片分享
+废话不多说，有图有真相。 
+北京出发，一路上比较顺利，八达岭小堵一会，8点出发，11点半到达。没有住酒店，找的家庭旅馆，一进门，哇塞，婚房啊。 
+ 
+
+
+ 
+最后一张孩子的房间，孩子比较喜欢，卧室的床也没少在上面蹦跶。总之，房间内暖气充足，3室两厅，大电视，能...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by huangyang on January 1, 2018
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2017/12/28/pmp4/">
+        <h2 class="post-title">
+            PMP考试准备4
+        </h2>
+        
+        <h3 class="post-subtitle">
+             "项目范围管理知识领域总结（第五章）"
+        </h3>
+        
+        <div class="post-content-preview">
+            ppt
+
+分析
+
+  范围管理中包含了范围管理和需求管理、
+  收集需求产生了需求文件和需求跟踪矩阵后，需求文件是后续所有范围管理过程的输入，需求跟踪矩阵是监控过程组中，范围管理的两个过程（确认范围和控制范围）的输入
+  规划范围管理输出范围管理计划后，范围管理计划成为后续几个过程直到创建WBS过程（收集需求、定义范围、创建WBS）输出了范围基准，范围基准是项目管理计划的组成部分，后续的控制...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by huangyang on December 28, 2017
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2017/12/26/pmp3/">
+        <h2 class="post-title">
+            PMP考试准备3
+        </h2>
+        
+        <h3 class="post-subtitle">
+             "项目整合管理知识领域总结（第四章）"
+        </h3>
+        
+        <div class="post-content-preview">
+            前因
+同学们分享了一份大牛整理的10大知识领域总结ppt，一个知识领域一幅图。相对于PMBOK每章概述的那幅图，ppt中的图用颜色对过程的输入、输出予以标记，也标注了输入输出与其他过程的关系（这部分内容不是全部，例如有些输入输出是其他知识领域的过程的输入或输出，ppt上没有完整的标注出来，毕竟ppt篇幅有限。无法将47个过程的所有ITTO图放在这10张总结图中）。总之相对于书本上的图更加生动...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by huangyang on December 26, 2017
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2017/12/24/pmp2/">
+        <h2 class="post-title">
+            PMP考试准备2
+        </h2>
+        
+        <h3 class="post-subtitle">
+             "培训结束"
+        </h3>
+        
+        <div class="post-content-preview">
+            说在前面的话
+今天是圣诞平安夜，也是pmp培训课程最后一天。正式的上课就结束了，剩下还有3次模拟考试，几次小组活动，然后就是明年3月底的最终大考。今晚决定放纵一晚，不碰教材，不看讲义，总之和pmp有关的书一概不看，写完这篇博客就去看看电影，打打游戏，争取早点上床好好补个觉。明天就是新的开始。
+
+体会
+连续两个周末，第一个周末2天，这个周末从周五开始到今天，一共5天的课程，早上9到下午4点半，...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by huangyang on December 24, 2017
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2017/12/22/gitwriter6/">
+        <h2 class="post-title">
+            gitwriter项目6
+        </h2>
+        
+        <h3 class="post-subtitle">
+             "图片保存在哪里的问题"
+        </h3>
+        
+        <div class="post-content-preview">
+            当前目标
+
+  主题编辑页面（markdown编辑）
+    设计思路
+    进展到markdown编辑功能的时候，碰到了一个很严峻的问题。就是markdown文件中的图片存在哪里的问题？
+ 
+在gitee网站上编辑markdown文件时，点击图片按键，弹出图片上传对话框，如上图，选择图片后，图片被上传到gitee的uploads目录下，其实是一个公共目录，和本项目没啥关系，生成上述htt...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by huangyang on December 22, 2017
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2017/12/20/gitwriter5/">
+        <h2 class="post-title">
+            gitwriter项目5
+        </h2>
+        
+        <h3 class="post-subtitle">
+             "gitee授权"
+        </h3>
+        
+        <div class="post-content-preview">
+            当前目标
+
+  实现一个简单的“我的”页面，用于显示用户创建的和参与的主题列表（“参与的”下一步再说）
+  点击主题列表，跳转到对应的博客页面
+
+
+设计思路
+新建topic时，创建的BlogTopic对象中存储项目仓库相关的信息，也存储着topic创建用户和参与用户列表的信息
+    private String id;
+    /**
+     * 名称
+     */
+    priva...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by huangyang on December 20, 2017
+    </p>
+</div>
+<hr>
+
+
+<!-- Pager -->
+
+<ul class="pager">
+    
+    
+    <li class="next">
+        <a href="/page2">Older Posts &rarr;</a>
+    </li>
+    
+</ul>
+
+
+    		</div>
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-3 col-lg-offset-0
+                col-md-3 col-md-offset-0
+                col-sm-12
+                col-xs-12
+                sidebar-container
+            ">
+                <!-- Featured Tags -->
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                            
+                                <a href="/tags/#生活" title="生活" rel="2">
+                                    生活
+                                </a>
+                            
+                        
+                            
+                                <a href="/tags/#jekyll" title="jekyll" rel="1">
+                                    jekyll
+                                </a>
+                            
+                        
+                            
+                                <a href="/tags/#IntelliJ" title="IntelliJ" rel="1">
+                                    IntelliJ
+                                </a>
+                            
+                        
+                            
+                                <a href="/tags/#SpringBoot" title="SpringBoot" rel="2">
+                                    SpringBoot
+                                </a>
+                            
+                        
+                            
+                                <a href="/tags/#阿里云" title="阿里云" rel="2">
+                                    阿里云
+                                </a>
+                            
+                        
+                            
+                                <a href="/tags/#钢笔字" title="钢笔字" rel="3">
+                                    钢笔字
+                                </a>
+                            
+                        
+                            
+                                <a href="/tags/#gitwriter" title="gitwriter" rel="7">
+                                    gitwriter
+                                </a>
+                            
+                        
+                            
+                                <a href="/tags/#pmp" title="pmp" rel="6">
+                                    pmp
+                                </a>
+                            
+                        
+                            
+                                <a href="/tags/#web" title="web" rel="1">
+                                    web
+                                </a>
+                            
+                        
+                            
+                                <a href="/tags/#游记" title="游记" rel="1">
+                                    游记
+                                </a>
+                            
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Short About -->
+                <section class="visible-md visible-lg">
+                    <hr><h5><a href="/about/">ABOUT ME</a></h5>
+                    <div class="short-about">
+                        
+                            <img src="/img/avatar-hux.jpg" />
+                        
+                        
+                            <p>写写代码，做做设计，看看产品。世界那么大，多玩玩看看。</p>
+                        
+                        <!-- SNS Link -->
+                        <ul class="list-inline">
+                            
+                            <li>
+                                <a href="/feed.xml">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            
+                            
+                            
+                            <li>
+                                <a target="_blank" href="https://www.zhihu.com/people/icyhy">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa  fa-stack-1x fa-inverse">知</i>
+                                    </span>
+                                </a>
+                            </li>
+                            
+                            
+                            <li>
+                                <a target="_blank" href="http://weibo.com/1025895004">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            
+                            
+                            <li>
+                                <a target="_blank" href="https://www.facebook.com/icyhy">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            
+                            
+                            <li>
+                                <a target="_blank" href="https://github.com/icyhy">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </section>
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+                    
+                        <li><a href="https://gitee.com/xknife">大侃</a></li>
+                    
+                        <li><a href="http://cripps.gitee.io/">克瑞普斯豆</a></li>
+                    
+                        <li><a href="#">丙</a></li>
+                    
+                        <li><a href="#">丁</a></li>
+                    
+                </ul>
+                
+    		</div>
+        
+	</div>
+</div>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+
+                    <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
+                    
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/icyhy">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="http://weibo.com/1025895004">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/icyhy">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/icyhy">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 天坑 2025
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a>
+                    <br>
+                    <div style="TEXT-ALIGN: center;">
+                        <div style="MARGIN-RIGHT: auto;MARGIN-LEFT: auto;">
+                            <script src='//gitee.com/huangyang/huangyang/star_widget_preview'></script>
+                        </div>
+                    </div>
+                    <br>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-49627206-1';
+    var _gaDomain = 'huangxuan.me';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '4cc1f2d8f3067386cc5cdb626a202900';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
