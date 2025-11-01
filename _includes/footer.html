@@ -168,28 +168,7 @@
 </script>
 {% endif %}
 
-<!-- Remove specific anchor linking to README.zh -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    try {
-      var anchors = document.querySelectorAll('a');
-      anchors.forEach(function(a) {
-        var href = a.getAttribute('href') || '';
-        var text = (a.textContent || '').trim();
-        var matchReadmeZh = /\/README\.zh(\/|\.md)?$/i.test(href) || /\/simplytoc\/README\.zh(\/|\.md)?$/i.test(href);
-        var matchText = text === '一个程序员的个人博客';
-        if (matchReadmeZh || matchText) {
-          var span = document.createElement('span');
-          span.textContent = text;
-          span.className = a.className || '';
-          a.parentNode.replaceChild(span, a);
-        }
-      });
-    } catch (e) {
-      // swallow errors silently to avoid breaking page
-    }
-  });
-</script>
+<!-- runtime anchor replacement script removed per request -->
 
 
 <!-- Baidu Tongji -->
