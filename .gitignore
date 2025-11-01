@@ -54,3 +54,12 @@ yarn-error.log*
 # 其他
 .cache/
 .parcel-cache/
+
+# Jekyll 构建产物
+_site/
+.jekyll-cache/
+.sass-cache/
+
+# Bundler 生成的目录
+vendor/
+.bundle/
