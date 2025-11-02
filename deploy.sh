@@ -119,8 +119,8 @@ main() {
     echo
     print_message $YELLOW "推送到 GitHub..."
     
-    # 获取当前分支名
-    current_branch=$(git branch --show-current)
+    # 获取当前分支名 (兼容旧版本 Git)
+    current_branch=$(git rev-parse --abbrev-ref HEAD)
     
     # 推送到远程仓库
     if git push origin "$current_branch"; then
