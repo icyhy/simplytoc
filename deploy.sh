@@ -90,7 +90,7 @@ main() {
     fi
     
     # 执行 Jekyll 构建
-    if bundle exec jekyll build; then
+    if bundle exec jekyll build --future; then
         print_message $GREEN "Jekyll 构建成功!"
     else
         print_message $RED "Jekyll 构建失败!"
