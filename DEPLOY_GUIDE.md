@@ -8,6 +8,23 @@
 ### ✅ Git 版本兼容性问题
 修复了 `git branch --show-current` 在旧版本 Git（< 2.22.0）中不支持的问题，现在使用 `git rev-parse --abbrev-ref HEAD` 来获取当前分支名。
 
+### ✅ 未来日期文章构建问题 ⭐
+**问题**：本地构建成功但 GitHub Pages 上看不到未来日期的文章。
+
+**原因**：
+- 本地使用 `bundle exec jekyll build --future` 可以构建未来日期的文章
+- 但 GitHub Pages 服务器端构建时不会使用本地的 `deploy.sh` 脚本
+- GitHub Pages 使用 Jekyll 默认设置，默认不构建未来日期的文章
+
+**解决方案**：
+- 在 `_config.yml` 中添加 `future: true` 配置
+- 这样 GitHub Pages 服务器端构建时也会包含未来日期的文章
+
+```yaml
+# Build settings
+future: true                            # 允许构建未来日期的文章
+```
+
 ## 快速使用
 
 ### 基本命令
