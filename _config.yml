@@ -25,7 +25,7 @@ facebook_username:  icyhy
 highlighter: rouge
 permalink: pretty
 paginate: 10
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","CLAUDE.md","vendor","Gemfile","Gemfile.lock",".bundle"]
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","vendor","Gemfile","Gemfile.lock",".bundle"]
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
 
 
