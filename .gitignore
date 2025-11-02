@@ -63,3 +63,6 @@ _site/
 # Bundler 生成的目录
 vendor/
 .bundle/
+
+#claude files
+CLAUDE.md

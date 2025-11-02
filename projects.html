@@ -5,20 +5,6 @@ description: "Software Projects Showcase"
 header-img: "img/contact-bg.jpg"
 ---
 
-<!-- Page Header -->
-<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
-                    <span class="subheading">{{ page.description }}</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
 <!-- Main Content -->
 <div class="container">
     <div class="row">
@@ -28,63 +14,113 @@ header-img: "img/contact-bg.jpg"
             <div class="projects-container">
 
                 <!-- Featured Projects -->
+                {% assign featured_projects = site.projects | where: "featured", true | sort: "order" %}
+                {% if featured_projects.size > 0 %}
                 <div class="project-section">
-                    <h2 class="section-title">Featured Projects</h2>
-
+                    <h2 class="section-title">精选项目</h2>
+                    
+                    {% for project in featured_projects %}
                     <div class="project-card">
-                        <h3 class="project-title">SimplyToc Blog</h3>
-                        <p class="project-description">
-                            A Jekyll-based personal blog platform built with the Hux theme, featuring responsive design,
-                            tag cloud functionality, and social media integration. Hosted on GitHub Pages with automated deployment.
-                        </p>
+                        <h3 class="project-title">{{ project.title }}</h3>
+                        <p class="project-description">{{ project.description }}</p>
+                        
+                        {% if project.tech_stack %}
                         <div class="project-tech">
-                            <span class="tech-tag">Jekyll</span>
-                            <span class="tech-tag">Liquid</span>
-                            <span class="tech-tag">Bootstrap</span>
-                            <span class="tech-tag">LESS</span>
+                            {% for tech in project.tech_stack %}
+                            <span class="tech-tag">{{ tech }}</span>
+                            {% endfor %}
+                            {% if project.status %}
+                            <span class="tech-tag status-tag">{{ project.status }}</span>
+                            {% endif %}
                         </div>
+                        {% endif %}
+                        
                         <div class="project-links">
-                            <a href="https://github.com/icyhy/simplytoc" class="project-link" target="_blank">
+                            {% if project.github_url and project.github_url != "#" %}
+                            <a href="{{ project.github_url }}" class="project-link" target="_blank">
                                 <i class="fa fa-github"></i> GitHub
                             </a>
-                            <a href="https://icyhy.github.io/simplytoc" class="project-link" target="_blank">
-                                <i class="fa fa-external-link"></i> Live Demo
+                            {% endif %}
+                            {% if project.demo_url and project.demo_url != "#" %}
+                            <a href="{{ project.demo_url }}" class="project-link" target="_blank">
+                                <i class="fa fa-external-link"></i> 在线演示
                             </a>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <h3 class="project-title">Coming Soon</h3>
-                        <p class="project-description">
-                            More exciting projects are in development. Check back soon for updates on new software projects,
-                            open source contributions, and technical experiments.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">In Development</span>
-                        </div>
-                        <div class="project-links">
+                            {% elsif project.demo_url == "#" %}
                             <a href="#" class="project-link disabled">
-                                <i class="fa fa-clock-o"></i> Coming Soon
+                                <i class="fa fa-clock-o"></i> 即将上线
                             </a>
+                            {% endif %}
                         </div>
+                        
+                        <!-- Project Content -->
+                        {% if project.content and project.content != "" %}
+                        <div class="project-content">
+                            {{ project.content }}
+                        </div>
+                        {% endif %}
                     </div>
+                    {% endfor %}
                 </div>
+                {% endif %}
 
-                <!-- Open Source Contributions -->
+                <!-- Other Projects -->
+                {% assign other_projects = site.projects | where: "featured", false | sort: "order" %}
+                {% if other_projects.size > 0 %}
                 <div class="project-section">
-                    <h2 class="section-title">Open Source Contributions</h2>
-
+                    <h2 class="section-title">其他项目</h2>
+                    
+                    {% for project in other_projects %}
                     <div class="project-card">
-                        <h3 class="project-title">Community Projects</h3>
-                        <p class="project-description">
-                            Active contributor to various open source projects. Focused on improving documentation,
-                            fixing bugs, and enhancing user experience in developer tools and frameworks.
-                        </p>
+                        <h3 class="project-title">{{ project.title }}</h3>
+                        <p class="project-description">{{ project.description }}</p>
+                        
+                        {% if project.tech_stack %}
                         <div class="project-tech">
-                            <span class="tech-tag">Open Source</span>
-                            <span class="tech-tag">Documentation</span>
-                            <span class="tech-tag">Bug Fixes</span>
+                            {% for tech in project.tech_stack %}
+                            <span class="tech-tag">{{ tech }}</span>
+                            {% endfor %}
+                            {% if project.status %}
+                            <span class="tech-tag status-tag">{{ project.status }}</span>
+                            {% endif %}
                         </div>
+                        {% endif %}
+                        
+                        <div class="project-links">
+                            {% if project.github_url and project.github_url != "#" %}
+                            <a href="{{ project.github_url }}" class="project-link" target="_blank">
+                                <i class="fa fa-github"></i> GitHub
+                            </a>
+                            {% endif %}
+                            {% if project.demo_url and project.demo_url != "#" %}
+                            <a href="{{ project.demo_url }}" class="project-link" target="_blank">
+                                <i class="fa fa-external-link"></i> 在线演示
+                            </a>
+                            {% elsif project.demo_url == "#" %}
+                            <a href="#" class="project-link disabled">
+                                <i class="fa fa-clock-o"></i> 即将上线
+                            </a>
+                            {% endif %}
+                        </div>
+                        
+                        <!-- Project Content -->
+                        {% if project.content and project.content != "" %}
+                        <div class="project-content">
+                            {{ project.content }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <!-- No Projects Message -->
+                {% if site.projects.size == 0 %}
+                <div class="project-section">
+                    <div class="project-card">
+                        <h3 class="project-title">项目建设中</h3>
+                        <p class="project-description">
+                            更多精彩项目正在开发中，敬请期待！如果您对我的工作感兴趣，欢迎通过 GitHub 了解更多信息。
+                        </p>
                         <div class="project-links">
                             <a href="https://github.com/icyhy" class="project-link" target="_blank">
                                 <i class="fa fa-github"></i> GitHub Profile
@@ -92,6 +128,7 @@ header-img: "img/contact-bg.jpg"
                         </div>
                     </div>
                 </div>
+                {% endif %}
 
             </div>
 
@@ -163,9 +200,15 @@ header-img: "img/contact-bg.jpg"
     font-weight: 500;
 }
 
+.status-tag {
+    background: #3498db;
+    color: #fff;
+}
+
 .project-links {
     display: flex;
     gap: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .project-link {
@@ -199,6 +242,34 @@ header-img: "img/contact-bg.jpg"
 
 .project-link i {
     font-size: 0.9rem;
+}
+
+.project-content {
+    border-top: 1px solid #eee;
+    padding-top: 1.5rem;
+    margin-top: 1rem;
+}
+
+.project-content h2 {
+    font-size: 1.3rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.project-content h3 {
+    font-size: 1.1rem;
+    margin-top: 1.2rem;
+    margin-bottom: 0.8rem;
+    color: #34495e;
+}
+
+.project-content ul {
+    margin-bottom: 1rem;
+}
+
+.project-content li {
+    margin-bottom: 0.5rem;
 }
 
 @media (max-width: 768px) {

@@ -25,10 +25,16 @@ facebook_username:  icyhy
 highlighter: rouge
 permalink: pretty
 paginate: 10
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","vendor","Gemfile","Gemfile.lock",".bundle"]
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","CLAUDE.md","vendor","Gemfile","Gemfile.lock",".bundle"]
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
 
 
+
+# Collections
+collections:
+  projects:
+    output: false
+    sort_by: order
 
 # Plugins
 # 从 Jekyll 3.0 起，配置项由 `gems` 重命名为 `plugins`
