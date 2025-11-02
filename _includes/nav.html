@@ -24,11 +24,14 @@
                     <li>
                         <a href="{{ site.baseurl }}/">Home</a>
                     </li>
+                    <li>
+                        <a href="{{ site.baseurl }}/projects">Projects</a>
+                    </li>
                     {% for page in site.pages %}
                         {% assign path = page.path | downcase %}
                         {% assign title_text = page.title | strip %}
                         {% if page.title %}
-                            {% unless path contains 'readme' or title_text == '一个程序员的个人博客' %}
+                            {% unless path contains 'readme' or title_text == '一个程序员的个人博客' or title_text == 'Projects' %}
                             <li>
                                 <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
                             </li>

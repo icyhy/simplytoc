@@ -1,0 +1,217 @@
+---
+title: Projects
+layout: page
+description: "Software Projects Showcase"
+header-img: "img/contact-bg.jpg"
+---
+
+<!-- Page Header -->
+<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
+                    <span class="subheading">{{ page.description }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+            <!-- Projects Section -->
+            <div class="projects-container">
+
+                <!-- Featured Projects -->
+                <div class="project-section">
+                    <h2 class="section-title">Featured Projects</h2>
+
+                    <div class="project-card">
+                        <h3 class="project-title">SimplyToc Blog</h3>
+                        <p class="project-description">
+                            A Jekyll-based personal blog platform built with the Hux theme, featuring responsive design,
+                            tag cloud functionality, and social media integration. Hosted on GitHub Pages with automated deployment.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Jekyll</span>
+                            <span class="tech-tag">Liquid</span>
+                            <span class="tech-tag">Bootstrap</span>
+                            <span class="tech-tag">LESS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/icyhy/simplytoc" class="project-link" target="_blank">
+                                <i class="fa fa-github"></i> GitHub
+                            </a>
+                            <a href="https://icyhy.github.io/simplytoc" class="project-link" target="_blank">
+                                <i class="fa fa-external-link"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <h3 class="project-title">Coming Soon</h3>
+                        <p class="project-description">
+                            More exciting projects are in development. Check back soon for updates on new software projects,
+                            open source contributions, and technical experiments.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">In Development</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link disabled">
+                                <i class="fa fa-clock-o"></i> Coming Soon
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Open Source Contributions -->
+                <div class="project-section">
+                    <h2 class="section-title">Open Source Contributions</h2>
+
+                    <div class="project-card">
+                        <h3 class="project-title">Community Projects</h3>
+                        <p class="project-description">
+                            Active contributor to various open source projects. Focused on improving documentation,
+                            fixing bugs, and enhancing user experience in developer tools and frameworks.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Open Source</span>
+                            <span class="tech-tag">Documentation</span>
+                            <span class="tech-tag">Bug Fixes</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/icyhy" class="project-link" target="_blank">
+                                <i class="fa fa-github"></i> GitHub Profile
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Custom CSS for Projects Page -->
+<style>
+.projects-container {
+    margin-top: 2rem;
+}
+
+.project-section {
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #f39c12;
+    color: #333;
+}
+
+.project-card {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.project-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.project-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #555;
+}
+
+.project-tech {
+    margin-bottom: 1.5rem;
+}
+
+.tech-tag {
+    display: inline-block;
+    background: #ecf0f1;
+    color: #2c3e50;
+    padding: 0.25rem 0.75rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.project-link:hover {
+    background: #2980b9;
+    color: #fff;
+    text-decoration: none;
+}
+
+.project-link.disabled {
+    background: #95a5a6;
+    cursor: not-allowed;
+}
+
+.project-link.disabled:hover {
+    background: #95a5a6;
+}
+
+.project-link i {
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .project-card {
+        padding: 1.5rem;
+    }
+
+    .project-links {
+        flex-direction: column;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+}
+</style>
