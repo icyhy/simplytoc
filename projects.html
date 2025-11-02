@@ -5,13 +5,8 @@ description: "Software Projects Showcase"
 header-img: "img/contact-bg.jpg"
 ---
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-
-            <!-- Projects Section -->
-            <div class="projects-container">
+<!-- Projects Section -->
+<div class="projects-container">
 
                 <!-- Featured Projects -->
                 {% assign featured_projects = site.projects | where: "featured", true | sort: "order" %}
@@ -131,10 +126,6 @@ header-img: "img/contact-bg.jpg"
                 {% endif %}
 
             </div>
-
-        </div>
-    </div>
-</div>
 
 <!-- Custom CSS for Projects Page -->
 <style>
